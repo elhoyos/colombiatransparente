@@ -4,5 +4,5 @@
 *.swn
 *.swl
 *.swm
-loyalti.db
+transparente.db
 local_settings.py
