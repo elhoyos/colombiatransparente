@@ -58,6 +58,10 @@ class Etiqueta(models.Model):
     def __unicode__(self):
         return self.texto
 
+    def save(self):
+        self.texto = self.texto.lower()
+        super(Etiqueta, self).save()
+
 class PromesaEtiqueta(models.Model):
     promesa = models.ForeignKey(Promesa)
     etiqueta = models.ForeignKey(Etiqueta)
