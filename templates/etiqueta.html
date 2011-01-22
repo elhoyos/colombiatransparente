@@ -24,7 +24,7 @@
 			<li>
             <h4><a href="{% url promesa promesa.slug %}">{{ promesa.titulo }}</a></h4>
                 <span class="estatus">{{ promesa.estatus|estatus }}</span>
-                <span class="personajecargo">
+                <span class="personaje_promesa">
                     {% for personaje in promesa.personajes %}
                     {{ personaje }}{% if not forloop.last %},{% endif %}
                     {% endfor %}
