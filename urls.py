@@ -22,5 +22,3 @@ if settings.DEBUG:
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}
         ),
     )
-
-
