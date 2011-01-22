@@ -5,14 +5,12 @@ from django.template import RequestContext
 from transparencia.models import Etiqueta
 from transparencia.models import ESTATUS_OPCIONES 
 
-
-def etiqueta(request, slug, template_name='etiqueta.html'):
-    etiqueta = get_object_or_404(Etiqueta, texto=slug)
-    promesas = [promesaetiqueta.promesa for \
-        promesaetiqueta in etiqueta.promesaetiqueta_set.all()]
-    
-    for promesa in promesas:
-        promesa.personajes = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
+def crear_scorecard(promesas):
+    if not promesas:
+        empty_scorecard = []
+        for i in range(len(ESTATUS_OPCIONES)):
+            empty_scorecard.append((0, 0))
+        return empty_scorecard
 
     scorecard_total = []
     scorecard_percent = []
@@ -25,12 +23,23 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
         scorecard_total[promesa.estatus] += 1
 
     for i in range(len(scorecard_total)):
-        if promesas:
-            scorecard_percent.append((1.0 * scorecard_total[i] / promesas_total) * 100)
-        else:
-            scorecard_percent.append(0)
+        scorecard_percent.append((1.0 * scorecard_total[i] / promesas_total) * 100)
 
-    scorecard = zip(scorecard_total, scorecard_percent)
+    return zip(scorecard_total, scorecard_percent)
+
+def index(request):
+    return HttpResponse("yo")
+
+
+def etiqueta(request, slug, template_name='etiqueta.html'):
+    etiqueta = get_object_or_404(Etiqueta, texto=slug)
+    promesas = [promesaetiqueta.promesa for \
+        promesaetiqueta in etiqueta.promesaetiqueta_set.all()]
+    
+    for promesa in promesas:
+        promesa.cargos = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
+
+    scorecard = crear_scorecard(promesas)
 
     context = {
         'etiqueta': etiqueta,
@@ -44,8 +53,40 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
     )
 
 
+def personaje(request, slug, template_name='personaje.html'):
+    personaje = get_object_or_404(Personaje, slug=slug)
+    promesas = [promesacargo.promesa for \
+        promesacargo in personaje.promesacargo_set.all()]
+    #cargos = personaje.cargos_set.all()
+
+    context = {
+       # 'etiqueta': etiqueta,
+        #'promesas': promesas,
+        #'scorecard': scorecard,
+    }
+    return render_to_response(
+        template_name,
+        context,
+        context_instance = RequestContext(request),
+    )
+
+    return HttpResponse("yo")
+
+
 def promesa(request, slug, template_name='promesa.html'):
     return HttpResponse("yo")
 
-def personaje(request, slug, template_name='personaje.html'):
+
+# TEMP
+
+def desarrolladores(request):
+    return HttpResponse("yo")
+
+def sobre(request):
+    return HttpResponse("yo")
+
+def patrocinadores(request):
+    return HttpResponse("yo")
+
+def contactenos(request):
     return HttpResponse("yo")

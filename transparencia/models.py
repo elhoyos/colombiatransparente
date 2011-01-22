@@ -38,14 +38,21 @@ class Personaje(models.Model):
 class Cargo(models.Model):
     personaje = models.ForeignKey(Personaje)
     titulo = models.CharField(max_length=64)
+    actual = models.BooleanField()
     inicio = models.DateField()
     terminacion = models.DateField(blank=True, null=True)
 
     def __unicode__(self):
-        return "%s, %s, %s - %s" % (self.personaje.nombre, self.titulo, self.inicio.year, self.terminacion.year)
+        if self.terminacion:
+            return "%s, %s, %s - %s" % (self.personaje.nombre, self.titulo, self.inicio.year, self.terminacion.year)
+        else:
+            return "%s, %s, %s" % (self.personaje.nombre, self.titulo, self.inicio.year)
 
     class Meta:
-        unique_together = ('personaje', 'titulo', 'inicio')
+        unique_together = (
+            ('personaje', 'titulo', 'inicio',),
+            ('personaje', 'actual',),
+        )
 
 class PromesaCargo(models.Model):
     promesa = models.ForeignKey(Promesa)
