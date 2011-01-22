@@ -5,11 +5,11 @@
 {% block main %}
     <h2>{{ personaje.nombre }} </h2>
 	<span class="cargo_actual">{{ personaje.cargoactual }}</span>
-	<p><img src="{{ personaje.image }}" /></p>
+    <p><img src="{{ MEDIA_URL }}{{ personaje.image }}" /></p>
 	<div class="otros_cargos">
         <ul>
-        {% for cargo in cargos %}
-            <li>cargo.titulo</li>
+        {% for cargo in personaje.cargos %}
+        <li>{{ cargo.titulo }}</li>
 		{% endfor %}
 		</ul> 
 	</div>
@@ -34,8 +34,8 @@
             <h4><a href="{% url promesa promesa.slug %}">{{ promesa.titulo }}</a></h4>
                 <span class="estatus">{{ promesa.estatus|estatus }}</span>
                 <span class="personaje_promesa">
-                    {% for personaje in promesa.personajes %}
-                    {{ personaje }}{% if not forloop.last %},{% endif %}
+                    {% for cargo in promesa.cargos %}
+                    {{ cargo }}{% if not forloop.last %},{% endif %}
                     {% endfor %}
                 </span>
                 <p>{{ promesa.descripcion|truncatewords_html:30 }}</p>

@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 
-from transparencia.models import Etiqueta
+from transparencia.models import Etiqueta, Personaje, Cargo, Promesa
 from transparencia.models import ESTATUS_OPCIONES 
 
 def crear_scorecard(promesas):
@@ -55,14 +55,26 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
 
 def personaje(request, slug, template_name='personaje.html'):
     personaje = get_object_or_404(Personaje, slug=slug)
-    promesas = [promesacargo.promesa for \
-        promesacargo in personaje.promesacargo_set.all()]
-    #cargos = personaje.cargos_set.all()
+    personaje.cargos = personaje.cargo_set.all()
+    try:
+        personaje.cargoactual = personaje.cargos.get(actual=True)
+    except Cargo.DoesNotExist:
+        pass
+
+    promesas = []
+    for cargo in personaje.cargos:
+        promesas += [promesacargo.promesa for \
+            promesacargo in cargo.promesacargo_set.all()]
+
+    for promesa in promesas:
+        promesa.cargos = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
+
+    scorecard = crear_scorecard(promesas)
 
     context = {
-       # 'etiqueta': etiqueta,
-        #'promesas': promesas,
-        #'scorecard': scorecard,
+        'personaje': personaje,
+        'promesas': promesas,
+        'scorecard': scorecard,
     }
     return render_to_response(
         template_name,
@@ -70,14 +82,24 @@ def personaje(request, slug, template_name='personaje.html'):
         context_instance = RequestContext(request),
     )
 
-    return HttpResponse("yo")
-
 
 def promesa(request, slug, template_name='promesa.html'):
-    return HttpResponse("yo")
+    promesa = get_object_or_404(Promesa, slug=slug)
+    promesa.diferencia = promesa.arriba - promesa.abajo
+    promesa.cargos = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
+    etiquetas = [promesaetiqueta.etiqueta for \
+        promesaetiqueta in promesa.promesaetiqueta_set.all()]
 
+    context = {
+        'promesa': promesa,
+        'etiquetas': etiquetas,
+    }
+    return render_to_response(
+        template_name,
+        context,
+        context_instance = RequestContext(request),
+    )
 
-# TEMP
 
 def desarrolladores(request):
     return HttpResponse("yo")

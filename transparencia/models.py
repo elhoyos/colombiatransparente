@@ -42,6 +42,11 @@ class Cargo(models.Model):
     inicio = models.DateField()
     terminacion = models.DateField(blank=True, null=True)
 
+    def save(self):
+        if len(self.personaje.cargo_set.all()) == 0:
+            self.actual = True
+        super(Cargo, self).save()
+
     def __unicode__(self):
         if self.terminacion:
             return "%s, %s, %s - %s" % (self.personaje.nombre, self.titulo, self.inicio.year, self.terminacion.year)
