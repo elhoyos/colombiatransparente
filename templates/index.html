@@ -4,6 +4,36 @@
 
 {% block header %} {% endblock %}
 
-{% block main %} {% endblock %}
+{% block main %}
+	{% if etiquetas %}
+	<div class="marquesina">
+		<ul class="etiquetas">
+			{% for etiqueta in etiquetas %}
+			<li>{{ etiqueta.texto }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+	{% if promesas %}
+	<ul class="promesas_list">
+		{% for promesa in promesas %}
+		<li>
+			<span class="diferencia">{{ promesa.diferencia }}</span>
+			<h4><a href="/promesa/{{ promesa.slug }}/">{{ promesa.titulo }}</a></h4>
+			<span class="estatus">{{ ESTATUS_OPCIONES.promesa.estatus }}</span>
+			<span class="personajecargo">
+				{% for promesacargo in promesa.promesacargo_set %}
+					{{ promesacargo.cargo }}
+					{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+			</span>
+			<p>{{ promesa.descripcion|truncatewords_html:30 }}</p>
+		</li>
+		{% endfor %}	
+	</ul>
+	{% else %}
+	<p class="mensaje">Que triste. No tenemos propuestas.</p>
+	{% endif %}
+{% endblock %}
 
 {% block footer %} {% endblock %}
