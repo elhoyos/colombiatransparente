@@ -7,3 +7,8 @@
 transparente.db
 local_settings.py
 Thumbs.db
+
+# Archivos de proyecto y temporales de Aptana
+.project
+.tmp*
+
