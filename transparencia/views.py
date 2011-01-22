@@ -10,7 +10,7 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
     etiqueta = get_object_or_404(Etiqueta, texto=slug)
     promesas = [promesaetiqueta.promesa for \
         promesaetiqueta in etiqueta.promesaetiqueta_set.all()]
-
+    
     for promesa in promesas:
         promesa.personajes = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
 
@@ -28,8 +28,6 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
         scorecard_percent.append((1.0 * scorecard_total[i] / promesas_total) * 100)
 
     scorecard = zip(scorecard_total, scorecard_percent)
-
-    print scorecard
 
     context = {
         'etiqueta': etiqueta,
