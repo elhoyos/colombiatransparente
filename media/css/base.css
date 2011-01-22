@@ -6,9 +6,10 @@
 
 .nav {
     background-color: #bfdbee;
-    width: 100%;
+    width: 80%;
     font-size: 15px;
-    color: #639 3D;
+    color: #6393D;
+    float: top;
 }
 
 .nav > ul {
