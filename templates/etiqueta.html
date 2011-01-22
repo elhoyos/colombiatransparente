@@ -22,8 +22,9 @@
 	<div class="descripcion">{{ etiqueta.descripcion }}</div>
 	<div class="promesas_container">
 		<h3>Promesas</h3>
-		{% for promesa in promesas %}
+		{% if promesas %}
 		<ul class="promesas_list">
+			{% for promesa in promesas %}
 			<li>
 				<h4><a href="/promesa/{{ promesa.slug }}/">{{ promesa.titulo }}</a></h4>
 				<span class="estatus">{{ ESTATUS_OPCIONES.promesa.estatus }}</span>
@@ -34,11 +35,12 @@
 					{% endfor %}
 				</span>
 				<p>{{ promesa.descripcion|truncatewords_html:30 }}</p>
-			</li>	
+			</li>
+			{% endfor %}	
 		</ul>
-		{% empty %}
+		{% else %}
 		<p class="mensaje">Que triste. Todavía no tenemos propuestas marcadas así.</p>
-		{% endfor %}
+		{% endif %}
 	</div>		
 	{% else %}
 	<p class="mensaje">Vaya! No encontramos la etiqueta que buscas. Intenta otra que se le relacione.</p>
