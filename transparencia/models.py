@@ -19,9 +19,9 @@ class Promesa(models.Model):
     slug = models.SlugField()
     estatus = models.IntegerField(choices=ESTATUS_OPCIONES)
     descripcion = models.TextField()
-    arriba = models.IntegerField(default=0)
-    abajo = models.IntegerField(default=0)
-    compartido = models.IntegerField(default=0)
+    arriba = models.IntegerField(default=0, editable=False)
+    abajo = models.IntegerField(default=0, editable=False)
+    compartido = models.IntegerField(default=0, editable=False)
     
     def __unicode__(self):
         return self.titulo
