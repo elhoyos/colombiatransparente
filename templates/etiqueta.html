@@ -4,6 +4,44 @@
 
 {% block header %} {% endblock %}
 
-{% block main %} {% endblock %}
+{% block main %}
+	{% if etiqueta %}
+	<h2>{{ etiqueta.texto }} </h2>
+	<div class="scorecard">
+		{% for score in SCORECARD }
+		<!-- ver http://politifact.com/truth-o-meter/promises/obameter/ como referencia -->
+		<ul class="chartitem">
+			<li>
+				<span class="estatus">{{ ESTATUS_OPCIONES.forloop.counter }}</span>
+				<span class="cantidad">{{ score.forloop.counter.0 }}</span>
+				<span class="barra"> </span>	
+			</li>
+		</ul>
+		{% endfor }
+	</div>
+	<div class="descripcion">{{ etiqueta.descripcion }}</div>
+	<div class="promesas_container">
+		<h3>Promesas</h3>
+		{% for promesa in promesas %}
+		<ul class="promesas_list">
+			<li>
+				<h4><a href="/promesa/{{ promesa.slug }}/">{{ promesa.titulo }}</a></h4>
+				<span>
+					{% for promesacargo in promesa.promesacargo_set %}
+						{{ promesacargo.cargo }}
+						{% if not forloop.last %}, {% endif %}
+					{% endfor %}
+				</span>
+				<p>{{ promesa.descripcion|truncatewords_html:30 }}</p>
+			</li>	
+		</ul>
+		{% empty %}
+		<p class="mensaje">Que triste. Todavía no tenemos propuestas marcadas así.</p>
+		{% endfor %}
+	</div>		
+	{% else %}
+	<p class="mensaje">Vaya! No encontramos la etiqueta que buscas. Intenta otra que se le relacione.</p>
+	{% endif }
+{% endblock %}
 
 {% block footer %} {% endblock %}

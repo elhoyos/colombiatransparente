@@ -19,7 +19,10 @@ promesas
   shared - int
   
 // y los estados son:
-estatus={0:"Estancado", 1:"En proceso", 2:"Incumplida", 3:"A medias", 4:"Cumplida"}
+ESTATUS_OPCIONES={0:"Estancado", 1:"En proceso", 2:"Incumplida", 3:"A medias", 4:"Cumplida"}
+
+// el scorecard está formado por una lista de cinco elementos (uno por cada estado). Cada elemento es una lista con dos valores: un entero (cantidad) y un decimal (porcentaje). Un ejemplo a continuación:
+SCORECARD=[[23,10],[40,20],[500,50],[30,15],[5,5]]
 
 etiquetas // las etiquetas representan temáticas. Crowdsourced.
   titulo (PK) - text
@@ -28,6 +31,7 @@ etiquetas // las etiquetas representan temáticas. Crowdsourced.
 personajes // no es Crowdsourced.
   id (PK) - int
   nombre - text - unique
+  slug - text
   descipción - text (parsed)
   image - text (path)
 
