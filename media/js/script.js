@@ -4,7 +4,10 @@ $(function(){
 
     /* Autocomplete */
 	
-	var defaultText = "Busca varias etiquetas y personajes"
+	// The array of Search objects to populate and send
+	var SearchData = [];
+	
+	var defaultText = "Busca varias etiquetas y personajes";
     
     var availableTags = [
         "ActionScript",
@@ -50,7 +53,6 @@ $(function(){
 	function unbindFocusEvents($autocomplete){
 		$autocomplete.unbind()
 	}
-    
 
     $("#search").bind("keydown", function(event){
         // don't navigate away from the field on tab when selecting an item
@@ -59,28 +61,7 @@ $(function(){
             event.preventDefault();
         }
     }).autocomplete({
-		minLength: 0,
-        source: function( request, response ) {
-            // delegate back to autocomplete, but extract the last term
-            response( $.ui.autocomplete.filter(
-                availableTags, extractLast( request.term ) ) );
-        },
-        focus: function() {
-            // prevent value inserted on focus
-            return false;
-        },
-        select: function( event, ui ) {
-            var terms = split( this.value );
-            // remove the current input
-            terms.pop();
-            // add the selected item
-            terms.push( ui.item.value );
-            // add placeholder to get the comma-and-space at the end
-            terms.push( "" );
-            this.value = terms.join( ", " );
-            return false;
-        }
-        /*source: function(request, response){
+		source: function(request, response){
             $.getJSON("XXXXX", {
                 term: extractLast(request.term)
             }, response);
@@ -104,10 +85,33 @@ $(function(){
             terms.push(ui.item.value);
             // add placeholder to get the comma-and-space at the end
             terms.push("");
+			
+			// populate the selected tag as a Search object
+            SearchData.push(
+                {
+			     value: ui.item.value,
+			     type: ui.item.type,
+				 id: ui.item.id
+                }
+			)
+			 			
             this.value = terms.join(", ");
             return false;
-        }*/
+        }
     });
+	
+	$("#do_search").click(function(){
+        // prevent multiple click at once
+        $(this).attr("disabled", true)
+	
+        $.post('/', JSON.stringify(SearchData), function(data){
+            console.log(data);
+			// do what you have to do
+		   
+            // allow clicking again
+            $(this).attr("disabled", false);
+	   });
+	});
 });
 
 
