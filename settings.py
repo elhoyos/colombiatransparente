@@ -82,4 +82,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'transparencia',
+    'sorl.thumbnail',
 )

@@ -1,5 +1,7 @@
 from django.db import models
 
+from sorl import thumbnail
+
 ESTANCADO = 0
 EN_PROCESO = 1
 INCUMPLIDA = 2
@@ -30,7 +32,7 @@ class Personaje(models.Model):
     nombre = models.CharField(max_length=64)
     slug = models.SlugField()
     descripcion = models.TextField()
-    image = models.ImageField(upload_to='img/personajes')
+    image = thumbnail.ImageField(upload_to='img/personajes')
 
     def __unicode__(self):
         return self.nombre

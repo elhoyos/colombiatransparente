@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
 {% load transparencia_extras %}
 
 {% block main %}
@@ -13,8 +14,10 @@
 	<div class="personaje">
 		{% for cargo in promesa.cargos %}
 		<ul>
-			<span class="nombre">{{ cargo }}</span>
-			<img src="{{ MEDIA_URL }}{{ cargo.personaje.image }}" />
+            <span class="nombre">{{ cargo }}</span>
+            {% thumbnail cargo.personaje.image "50x50" crop="center" as im %}
+            <img src="{{ im.url }}" />
+            {% endthumbnail %}
 		</ul>
 		{% endfor %}
 	</div>
