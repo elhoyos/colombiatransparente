@@ -1,9 +1,39 @@
-# Promesa
-
 {% extends "base.html" %}
 
-{% block header %} {% endblock %}
+{% load transparencia_extras %}
 
-{% block main %} {% endblock %}
-
-{% block footer %} {% endblock %}
+{% block main %}
+    <div class="votacion">
+    	<img src="{{ MEDIA_URL }}img/up.jpg" />
+		<span>{{ promesa.diferencia }}</span>
+		<img src="{{ MEDIA_URL }}img/down.jpg" />
+    </div>
+    <h2>{{ promesa.titulo }} </h2>
+	<span class="estatus">{{ promesa.estatus|estatus }}</span>
+	<div class="personaje">
+		{% for cargo in promesa.cargos %}
+		<ul>
+			<span class="nombre">{{ cargo }}</span>
+			<img src="{{ MEDIA_URL }}{{ cargo.personaje.image }}" />
+		</ul>
+		{% endfor %}
+	</div>
+	
+	<div class="fb_share">
+		<!-- Acá se coloca el snippet del share de facebook -->
+	</div>
+	
+    <ul class="etiquetas">
+        {% for etiqueta in etiquetas %}
+        <li>{{ etiqueta.texto }}</li>
+        {% endfor %}
+    </ul>
+	
+	<p class="decripcion">
+		{{ promesa.descripcion }}
+	</p>
+	
+	<div class="fb_comments">
+        <!-- Acá se coloca el snippet del 'comments' de facebook -->
+    </div>
+{% endblock %}
