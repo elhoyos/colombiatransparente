@@ -34,7 +34,8 @@ ADMINS = (
 SEND_BROKEN_LINK_EMAILS = True
 MANAGERS = ADMINS
 
-PREPEND_WWW = True
+if not DEBUG:
+    PREPEND_WWW = True
 
 TIME_ZONE = 'America/Bogota'
 
