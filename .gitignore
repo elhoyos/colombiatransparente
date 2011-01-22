@@ -12,3 +12,4 @@ media/img/personajes/*
 # Archivos de proyecto y temporales de Aptana
 .project
 .tmp*
+.pydevproject
