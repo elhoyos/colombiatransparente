@@ -27,9 +27,14 @@ def crear_scorecard(promesas):
 
     return zip(scorecard_total, scorecard_percent)
 
-def index(request):
-    return HttpResponse("yo")
-
+def index(request, template_name='index.html'):
+    context = {
+    }
+    return render_to_response(
+        template_name,
+        context,
+        context_instance = RequestContext(request),
+    )
 
 def etiqueta(request, slug, template_name='etiqueta.html'):
     etiqueta = get_object_or_404(Etiqueta, texto=slug)

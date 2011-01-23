@@ -62,7 +62,7 @@ $(function(){
         }
     }).autocomplete({
 		source: function(request, response){
-            $.getJSON("XXXXX", {
+            $.getJSON("/api/buscar_tag.json", {
                 term: extractLast(request.term)
             }, response);
         },
@@ -104,7 +104,7 @@ $(function(){
         // prevent multiple click at once
         $(this).attr("disabled", true)
 	
-        $.post('/', JSON.stringify(SearchData), function(data){
+        $.get('/api/buscar_promesas.json', JSON.stringify(SearchData), function(data){
             console.log(data);
 			// do what you have to do
 		   
@@ -113,24 +113,3 @@ $(function(){
 	   });
 	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
