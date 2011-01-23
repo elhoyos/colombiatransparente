@@ -7,12 +7,10 @@ try:
 except ImportError: 
     import json
 
-"""
 TIPO_TAGS = {
     Cargo: 0,
     Etiqueta: 1,
 }
-"""
 
 # JSON helper functions
 def JSONResponse(data, dump=True):
@@ -56,5 +54,11 @@ def buscar_promesas(request):
     #if request.is_ajax() and 'q' in request.GET:
     if 'q' in request.GET:
         q = request.GET['q']
-        data = {}
+
+        promesas = []
+        for tag in q:
+            pass
+           # if tag.tipo = TIPO_TAGS[Cargo]:
+
+        data = json.loads(q)
         return JSONResponse(data)
