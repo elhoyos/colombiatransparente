@@ -6,8 +6,9 @@
 *.swm
 transparente.db
 local_settings.py
-Thumbs.db
 media/img/personajes/*
+media/cache/*
+apache/django.wsgi
 
 # Archivos de proyecto y temporales de Aptana
 .project
@@ -16,3 +17,6 @@ media/img/personajes/*
 
 # My personal folder notes
 mynotes
+
+# Windows garbage
+Thumbs.db
