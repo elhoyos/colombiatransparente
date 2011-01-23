@@ -52,7 +52,7 @@ $(function(){
         }
     }).autocomplete({
 		source: function(request, response){
-            $.getJSON("/api/buscar_tag.json", {
+            $.getJSON("/api/buscar_tags.json", {
 				q: extractLast(request.term)
 			}, response);
         },
@@ -96,7 +96,7 @@ $(function(){
         $(this).attr("disabled", true)
 	
         $.get('/api/buscar_promesas.json', {
-			terms: JSON.stringify(SearchData)
+			q: JSON.stringify(SearchData)
 		}, function(data){
             console.log(data);
 			// MISSING: afectar el DOM con las promesas retornadas
