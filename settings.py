@@ -34,9 +34,6 @@ ADMINS = (
 SEND_BROKEN_LINK_EMAILS = True
 MANAGERS = ADMINS
 
-if not DEBUG:
-    PREPEND_WWW = True
-
 TIME_ZONE = 'America/Bogota'
 
 LANGUAGE_CODE = 'es-co'
