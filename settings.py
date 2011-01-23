@@ -41,8 +41,8 @@ LANGUAGE_CODE = 'es-co'
 
 SITE_ID = 1
 
-USE_I18N = False
-USE_L10N = False
+USE_I18N = True
+USE_L10N = True
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 if DEBUG:
