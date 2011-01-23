@@ -15,7 +15,8 @@ apache/django.wsgi
 .tmp*
 .pydevproject
 
-Thumbs.db
-
 # elhoyos' personal folder notes
 mynotes
+
+# Windows garbage
+Thumbs.db
