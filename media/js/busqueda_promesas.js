@@ -22,6 +22,10 @@ $(function(){
         return split(term).pop();
     }
 	
+	function extractFirst(term){
+        return split(term)[0];
+    }
+	
 	// devuelve una url sin parámetros
 	function getUrlWithoutParams(url){
 		if (url && url.length > 0)
@@ -73,15 +77,14 @@ $(function(){
             // quita el último elemento
             terms.pop();
             // adicional el elemento selccionado
-            terms.push(ui.item.value);
+            terms.push(extractFirst(ui.item.value));
 			// añade un "placeholder" para luego incluir la coma y el espacio al final
             terms.push("");
 			
 			// agrega el tag seleccionado al SearchData que será enviado luego
             SearchData.push(
                 {
-			     value: ui.item.value,
-			     type: ui.item.type,
+			     tipo: ui.item.tipo,
 				 id: ui.item.id
                 }
 			);
