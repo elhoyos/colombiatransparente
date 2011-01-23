@@ -7,10 +7,12 @@ try:
 except ImportError: 
     import json
 
+"""
 TIPO_TAGS = {
     Cargo: 0,
     Etiqueta: 1,
 }
+"""
 
 # JSON helper functions
 def JSONResponse(data, dump=True):
@@ -20,7 +22,7 @@ def JSONResponse(data, dump=True):
     )
 
 def buscar_tag(request):
-    if 'term' in request.GET:
+    if request.is_ajax() and 'q' in request.GET:
         term = request.GET['q']
 
         #Encontrar todos los personajes que contienen el term
@@ -49,7 +51,6 @@ def buscar_tag(request):
                 })
 
         return JSONResponse(tags)
-
 
 def buscar_promesa(request):
     return HttpResponse("yo")
