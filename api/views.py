@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from transparencia.models import Cargo, Personaje, Etiqueta
+from transparencia.models import Cargo, Personaje, Etiqueta, Promesa
 
 try: 
     import simplejson as json
@@ -53,12 +53,23 @@ def buscar_tags(request):
 def buscar_promesas(request):
     #if request.is_ajax() and 'q' in request.GET:
     if 'q' in request.GET:
-        q = request.GET['q']
+        q = json.loads(request.GET['q'])
 
         promesas = []
         for tag in q:
-            pass
-           # if tag.tipo = TIPO_TAGS[Cargo]:
+            if tag['tipo'] == TIPO_TAGS[Cargo]:
+                try:
+                    cargo = Cargo.objects.get(pk=tag['id'])
+                except Cargo.DoesNotExist:
+                    continue
+                promesas += [promesacargo.promesa for \
+                    promesacargo in cargo.promesacargo_set.all()]
+            elif tag['tipo'] == TIPO_TAGS[Etiqueta]:
+                try:
+                    etiqueta = Etiqueta.objects.get(pk=tag['id'])
+                except Etiqueta.DoesNotExist:
+                    continue
+                promesas += [promesaetiqueta.promesa for \
+                    promesaetiqueta in etiqueta.promesaetiqueta_set.all()]
 
-        data = json.loads(q)
-        return JSONResponse(data)
+        return HttpResponse(promesas)
