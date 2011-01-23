@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from django.template.loader import get_template
+from django.template import Context
 
 from transparencia.models import Cargo, Personaje, Etiqueta, Promesa
 
@@ -72,4 +74,11 @@ def buscar_promesas(request):
                 promesas += [promesaetiqueta.promesa for \
                     promesaetiqueta in etiqueta.promesaetiqueta_set.all()]
 
-        return HttpResponse(promesas)
+        for promesa in promesas:
+            promesa.cargos = [promesacargo.cargo for \
+                promesacargo in promesa.promesacargo_set.all()]
+        
+        t = get_template('includes/lista_promesas.html')
+        html = t.render(Context({'promesas': promesas}))
+        
+        return HttpResponse(html)
