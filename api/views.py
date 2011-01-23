@@ -7,10 +7,12 @@ try:
 except ImportError: 
     import json
 
+"""
 TIPO_TAGS = {
     Cargo: 0,
     Etiqueta: 1,
 }
+"""
 
 # JSON helper functions
 def JSONResponse(data, dump=True):
@@ -20,12 +22,12 @@ def JSONResponse(data, dump=True):
     )
 
 def buscar_tags(request):
-    if 'term' in request.GET:
-        term = request.GET['q']
+    if request.is_ajax() and 'q' in request.GET:
+        q = request.GET['q']
 
         #Encontrar todos los personajes que contienen el term
-        cargos = list(Cargo.objects.filter(titulo__icontains=term))
-        for personaje in Personaje.objects.filter(nombre__icontains=term):
+        cargos = list(Cargo.objects.filter(titulo__icontains=q))
+        for personaje in Personaje.objects.filter(nombre__icontains=q):
             cargos += personaje.cargo_set.all()
         
         # Quitar repeticiones
@@ -40,7 +42,7 @@ def buscar_tags(request):
             })
 
         # Encontrar etiquetas que contienen el term
-        etiquetas = Etiqueta.objects.filter(texto__icontains=term)
+        etiquetas = Etiqueta.objects.filter(texto__icontains=q)
         for etiqueta in etiquetas:
             tags.append({
                 'tipo': 1,
@@ -50,6 +52,9 @@ def buscar_tags(request):
 
         return JSONResponse(tags)
 
-
-def buscar_promesa(request):
-    return HttpResponse("yo")
+def buscar_promesas(request):
+    #if request.is_ajax() and 'q' in request.GET:
+    if 'q' in request.GET:
+        q = request.GET['q']
+        data = {}
+        return JSONResponse(data)
