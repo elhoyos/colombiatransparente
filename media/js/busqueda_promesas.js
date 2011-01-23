@@ -79,8 +79,7 @@ $(function(){
 			// agrega el tag seleccionado al SearchData que será enviado luego
             SearchData.push(
                 {
-			     value: ui.item.value,
-			     type: ui.item.type,
+			     tipo: ui.item.tipo,
 				 id: ui.item.id
                 }
 			);
