@@ -53,7 +53,7 @@ $(function(){
     }).autocomplete({
 		source: function(request, response){
             $.getJSON("/api/buscar_tag.json", {
-				term: extractLast(request.term)
+				q: extractLast(request.term)
 			}, response);
         },
         search: function(){
@@ -111,7 +111,7 @@ $(function(){
         $btnSearch.attr("disabled", true)
     
         $.get('/api/buscar_promesas.json', {
-            terms: JSON.stringify(SearchData)
+            q: JSON.stringify(SearchData)
         }, function(data){
             console.log(data);
             // MISSING: afectar el DOM con las promesas retornadas
@@ -124,7 +124,7 @@ $(function(){
 		// busqueda de promesas
         if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
             // habilitamos el botón
-            $(e.target).attr("disabled", false);
+            $(e.currentTarget).attr("disabled", false);
         }
     })
 	
