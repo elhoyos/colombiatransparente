@@ -21,6 +21,12 @@ $(function(){
         return split(term).pop();
     }
 	
+	// devuelve una url sin parámetros
+	function getUrlWithoutParams(url){
+		if (url && url.length > 0)
+			return url.split(/\?/)[0];
+    }
+	
 	function bindFocusEvents($autocomplete){
 		$autocomplete.focusin(function(){
             $(this).val("");
@@ -98,9 +104,9 @@ $(function(){
             // habilitamos el botón
             //$(this).attr("disabled", false);
 	   });
-	}).ajaxError(function(e, xhr, settings, ex){
+	}).ajaxComplete(function(e, xhr, settings){
 		// definimos lo que hay que hacer al terminar cada petición ajax
-        if (settings.url == '/api/buscar_promesas.json') {
+        if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
             alert(ex);
         }
     });
