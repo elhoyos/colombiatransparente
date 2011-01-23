@@ -48,7 +48,7 @@ $(function(){
 	/* Manejo de eventos */
 	
     // regalemosle un autocomplete a la caja de búsqueda
-    $btnSearch.bind("keydown", function(event){
+    $("#search").bind("keydown", function(event){
 		// evitemos que la caja de busqueda pierda el foco cuando se presione tab al
 		// seleccionar un elemento
         if (event.keyCode === $.ui.keyCode.TAB &&
@@ -64,7 +64,7 @@ $(function(){
         search: function(){
             // cantidad mínima de caracteres para empezar a buscar
             var term = extractLast(this.value);
-            if (term.length < 2) {
+            if (term.length < 1) {
                 return false;
             }
         },
@@ -102,7 +102,7 @@ $(function(){
     // busca promesas con los términos dados
     function SearchPromise() {
 		// evitamos multiples clicks
-        $btnSearch.attr("disabled", true)
+        btnSearch.attr("disabled", true)
     
         $.get('/api/buscar_promesas.json', {
             q: JSON.stringify(SearchData)
@@ -117,7 +117,7 @@ $(function(){
 		// busqueda de promesas
         if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
             // habilitamos el botón
-            $btnSearch.attr("disabled", false);
+            btnSearch.attr("disabled", false);
         }
     })
 	
