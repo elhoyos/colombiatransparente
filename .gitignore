@@ -13,3 +13,6 @@ media/img/personajes/*
 .project
 .tmp*
 .pydevproject
+
+# My personal folder notes
+mynotes
