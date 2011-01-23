@@ -58,7 +58,6 @@ class Cargo(models.Model):
     class Meta:
         unique_together = (
             ('personaje', 'titulo', 'inicio',),
-            ('personaje', 'actual',),
         )
 
 class PromesaCargo(models.Model):
