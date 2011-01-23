@@ -10,7 +10,7 @@ except ImportError:
 TIPO_TAGS = {
     Cargo: 0,
     Etiqueta: 1,
-)
+}
 
 # JSON helper functions
 def JSONResponse(data, dump=True):
