@@ -9,6 +9,7 @@ $(function(){
 	// arreglo de objetos (tags) seleccionados para buscar promesas
 	var SearchData = [];
 	var defaultText = "Busca varias etiquetas y personajes";
+	var $btnSearch = $("#do_search");
     
 	
 	/* Utilidades */
@@ -43,7 +44,7 @@ $(function(){
 	/* Manejo de eventos */
 	
     // regalemosle un autocomplete a la caja de búsqueda
-    $("#search").bind("keydown", function(event){
+    $btnSearch.bind("keydown", function(event){
 		// evitemos que la caja de busqueda pierda el foco cuando se presione tab al
 		// seleccionar un elemento
         if (event.keyCode === $.ui.keyCode.TAB &&
@@ -92,21 +93,11 @@ $(function(){
 	
 	// eventos para enviar la solicitud de búsqueda de promesas
 	$("#do_search").click(function(){
-		// evitamos multiples clicks
-        $(this).attr("disabled", true)
-	
-        $.get('/api/buscar_promesas.json', {
-			terms: JSON.stringify(SearchData)
-		}, function(data){
-            console.log(data);
-			// MISSING: afectar el DOM con las promesas retornadas
-	   });
+		SearchPromise(); 
 	});
 	
-	
+    // busca promesas con los términos dados
 	function SearchPromise() {
-		var $btnSearch = $("#do_search");
-		
 		// evitamos multiples clicks
         $btnSearch.attr("disabled", true)
     
@@ -120,11 +111,10 @@ $(function(){
 	
 	// definimos lo que hay que hacer al terminar cada petición ajax
 	$("body").ajaxComplete(function(e, xhr, settings){
-        
 		// busqueda de promesas
         if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
             // habilitamos el botón
-            $(e.currentTarget).attr("disabled", false);
+            $btnSearch.attr("disabled", false);
         }
     })
 	
