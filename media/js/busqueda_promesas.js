@@ -93,21 +93,19 @@ $(function(){
 	// eventos para enviar la solicitud de búsqueda de promesas
 	$("#do_search").click(function(){
 		// evitamos multiples clicks
-        //$(this).attr("disabled", true)
+        $(this).attr("disabled", true)
 	
         $.get('/api/buscar_promesas.json', {
 			terms: JSON.stringify(SearchData)
 		}, function(data){
             console.log(data);
 			// MISSING: afectar el DOM con las promesas retornadas
-		   
-            // habilitamos el botón
-            //$(this).attr("disabled", false);
 	   });
 	}).ajaxComplete(function(e, xhr, settings){
 		// definimos lo que hay que hacer al terminar cada petición ajax
         if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
-            alert(ex);
+            // habilitamos el botón
+            $(this).attr("disabled", false);
         }
     });
 });
