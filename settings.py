@@ -45,8 +45,12 @@ USE_L10N = False
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 if DEBUG:
-    MEDIA_URL = 'http://localhost:8000/media/'
-    ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
+    if STAGING:
+        MEDIA_URL = 'http://staging.colombiatransparente.co/media/'
+        ADMIN_MEDIA_PREFIX = 'http://staging.colombiatransparente.co/media/admin/'
+    else:
+        MEDIA_URL = 'http://localhost:8000/media/'
+        ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
 else:
     MEDIA_URL = 'http://media.colombiatransparente.co/'
     ADMIN_MEDIA_PREFIX = 'http://media.colombiatransparente.co/admin/'
