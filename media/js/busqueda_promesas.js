@@ -104,7 +104,7 @@ $(function(){
 		// evitamos multiples clicks
         $btnSearch.attr("disabled", true)
     
-        $.get('/api/buscar_promesas.json', {
+        $.get('/api/buscar_promesas/', {
             q: JSON.stringify(SearchData)
         }, function(data){
             console.log(data);
@@ -115,7 +115,7 @@ $(function(){
 	// definimos lo que hay que hacer al terminar cada petición ajax
 	$("body").ajaxComplete(function(e, xhr, settings){
 		// busqueda de promesas
-        if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
+        if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas/') {
             // habilitamos el botón
             $btnSearch.attr("disabled", false);
         }

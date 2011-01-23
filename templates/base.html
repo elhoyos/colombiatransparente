@@ -26,37 +26,22 @@
     <script src="{{ MEDIA_URL }}js/libs/modernizr-1.6.min.js"></script>
 </head>
     <body>
-        <div id="container">
-            	<div class="logo">
-            		<a href="{% url index %}"><img src="{{ MEDIA_URL }}img/CT2.png" width="300" height="146"/></a>
-            	</div>
-				<div class="nav">
-				    <ul>
-				        <li>
-				            <a href="{% url sobre %}">Sobre</a>
-				        </li>
-				        <li>
-				            <a href="{% url desarrolladores %}">Desarrolladores</a>
-				        </li>
-						<li>
-                            <a href="{% url patrocinadores %}">Patrocinadores</a>
-                        </li>
-						<li>
-                            <a href="{% url contactenos %}">Cont&aacute;ctenos</a>
-                        </li>
-				        <li class="search_container">
-				        	<input id="search" type="text" size="50" />
-                            <input id="do_search" type="button" value="Buscar" />
-				        </li>
-				    </ul>
-				</div>
-                {% block header %} {% endblock %}
-            <fb:like show_faces="true" width="450"></fb:like> 
-            <div id="main">
+        <div id="container">           	
+			{% include 'includes/logo.html' %}
+			
+			{% include 'includes/menu.html' %}
+			
+            {% block header %} {% endblock %}
+            
+			<fb:like show_faces="true" width="450"></fb:like> 
+            
+			<div id="main">
                 {% block main %} {% endblock %}
             </div>
-            <fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
-                {% block footer %} {% endblock %}
+            
+			<fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
+            
+			{% block footer %} {% endblock %}
         </div> <!-- end of #container -->
 
 
