@@ -9,7 +9,7 @@ $(function(){
 	// arreglo de objetos (tags) seleccionados para buscar promesas
 	var SearchData = [];
 	var defaultText = "Busca varias etiquetas y personajes";
-	var $btnSearch = $("#do_search");
+	var $$btnSearch = $("#do_search");
     
 	
 	/* Utilidades */
@@ -102,7 +102,7 @@ $(function(){
     // busca promesas con los términos dados
     function SearchPromise() {
 		// evitamos multiples clicks
-        btnSearch.attr("disabled", true)
+        $btnSearch.attr("disabled", true)
     
         $.get('/api/buscar_promesas.json', {
             q: JSON.stringify(SearchData)
@@ -117,7 +117,7 @@ $(function(){
 		// busqueda de promesas
         if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
             // habilitamos el botón
-            btnSearch.attr("disabled", false);
+            $btnSearch.attr("disabled", false);
         }
     })
 	
