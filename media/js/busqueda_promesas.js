@@ -9,7 +9,7 @@ $(function(){
 	// arreglo de objetos (tags) seleccionados para buscar promesas
 	var SearchData = [];
 	var defaultText = "Busca varias etiquetas y personajes";
-	var $$btnSearch = $("#do_search");
+	var $btnSearch = $("#do_search");
     
 	
 	/* Utilidades */
