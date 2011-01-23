@@ -5,6 +5,7 @@
 """
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+STAGING = True
 
 DATABASES = {
     'default': {

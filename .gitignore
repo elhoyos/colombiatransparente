@@ -15,7 +15,7 @@ apache/django.wsgi
 .tmp*
 .pydevproject
 
-# My personal folder notes
+# elhoyos' personal folder notes
 mynotes
 
 # Windows garbage
