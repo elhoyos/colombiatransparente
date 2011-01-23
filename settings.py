@@ -48,7 +48,7 @@ if DEBUG:
     MEDIA_URL = 'http://localhost:8000/media/'
     ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
 else:
-    MEDIA_URL = 'http://www.colombiatransparente.co/media'
+    MEDIA_URL = 'http://www.colombiatransparente.co/media/'
     ADMIN_MEDIA_PREFIX = 'http://www.colombiatransparente.co/media/admin/'
 
 TEMPLATE_LOADERS = (
