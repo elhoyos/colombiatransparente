@@ -14,7 +14,6 @@ TIPO_TAGS = {
     Etiqueta: 1,
 }
 
-# JSON helper functions
 def JSONResponse(data, dump=True):
     return HttpResponse(
         json.dumps(data) if dump else data,
@@ -30,7 +29,6 @@ def buscar_tags(request):
         for personaje in Personaje.objects.filter(nombre__icontains=q):
             cargos += personaje.cargo_set.all()
         
-        # Quitar repeticiones
         cargos = set(cargos)
 
         tags = []
@@ -53,8 +51,7 @@ def buscar_tags(request):
         return JSONResponse(tags)
 
 def buscar_promesas(request):
-    #if request.is_ajax() and 'q' in request.GET:
-    if 'q' in request.GET:
+    if request.is_ajax() and 'q' in request.GET:
         q = json.loads(request.GET['q'])
 
         promesas = []
