@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
 {% load transparencia_extras %}
 
 {% block main %}
     <h2>{{ personaje.nombre }} </h2>
 	<span class="cargo_actual">{{ personaje.cargoactual }}</span>
-    <p><img src="{{ MEDIA_URL }}{{ personaje.image }}" /></p>
+    <p>
+    	{% thumbnail personaje.image "100x100" crop="center" as im %}
+    	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height}}" />
+		{% endthumbnail %}
+	</p>
 	<div class="otros_cargos">
         <ul>
         {% for cargo in personaje.cargos %}
