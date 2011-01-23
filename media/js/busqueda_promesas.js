@@ -107,8 +107,7 @@ $(function(){
         $.get('/api/buscar_promesas/', {
             q: JSON.stringify(SearchData)
         }, function(data){
-            console.log(data);
-            // MISSING: afectar el DOM con las promesas retornadas
+            $("#promesas").html(data);
         });
 	}
 	

@@ -14,7 +14,9 @@
 	{% endif %}
 	
 	{% if promesas %}
+	   <ul id="promesas" class="promesas promesas-home">
 	   {% include 'includes/lista_promesas.html' %}
+	   </ul>
 	{% else %}
 	<p class="mensaje">Que triste. No tenemos propuestas.</p>
 	{% endif %}
