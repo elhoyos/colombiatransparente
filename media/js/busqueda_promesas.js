@@ -53,7 +53,7 @@ $(function(){
         }
     }).autocomplete({
 		source: function(request, response){
-            $.getJSON("/api/buscar_tag.json", {
+            $.getJSON("/api/buscar_tags.json", {
 				q: extractLast(request.term)
 			}, response);
         },

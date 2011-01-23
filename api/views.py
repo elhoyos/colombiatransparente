@@ -7,10 +7,10 @@ try:
 except ImportError: 
     import json
 
-TIPO_TAGS = (
-    (0, Cargo),
-    (1, Etiqueta),
-)
+TIPO_TAGS = {
+    Cargo: 0,
+    Etiqueta: 1,
+}
 
 # JSON helper functions
 def JSONResponse(data, dump=True):
@@ -19,13 +19,13 @@ def JSONResponse(data, dump=True):
         mimetype='application/json',
     )
 
-def buscar_tag(request):
+def buscar_tags(request):
     if 'term' in request.GET:
-        term = request.GET['term']
+        term = request.GET['q']
 
-        #Encontrar todos los personajes que empiezan con el term
-        cargos = list(Cargo.objects.filter(titulo__istartswith=term))
-        for personaje in Personaje.objects.filter(nombre__istartswith=term):
+        #Encontrar todos los personajes que contienen el term
+        cargos = list(Cargo.objects.filter(titulo__icontains=term))
+        for personaje in Personaje.objects.filter(nombre__icontains=term):
             cargos += personaje.cargo_set.all()
         
         # Quitar repeticiones
@@ -39,8 +39,8 @@ def buscar_tag(request):
                 'value': cargo.__unicode__(),
             })
 
-        # Encontrar etiquetas que empiezan con el term
-        etiquetas = Etiqueta.objects.filter(texto__istartswith=term)
+        # Encontrar etiquetas que contienen el term
+        etiquetas = Etiqueta.objects.filter(texto__icontains=term)
         for etiqueta in etiquetas:
             tags.append({
                 'tipo': 1,
