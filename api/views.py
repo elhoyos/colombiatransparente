@@ -24,8 +24,8 @@ def buscar_tag(request):
         term = request.GET['term']
 
         #Encontrar todos los personajes que empiezan con el term
-        cargos = list(Cargo.objects.filter(titulo__startswith=term))
-        for personaje in Personaje.objects.filter(nombre__startswith=term):
+        cargos = list(Cargo.objects.filter(titulo__istartswith=term))
+        for personaje in Personaje.objects.filter(nombre__istartswith=term):
             cargos += personaje.cargo_set.all()
         
         # Quitar repeticiones
@@ -40,7 +40,7 @@ def buscar_tag(request):
             })
 
         # Encontrar etiquetas que empiezan con el term
-        etiquetas = Etiqueta.objects.filter(texto__startswith=term)
+        etiquetas = Etiqueta.objects.filter(texto__istartswith=term)
         for etiqueta in etiquetas:
             tags.append({
                 'tipo': 1,
