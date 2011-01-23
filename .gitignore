@@ -6,10 +6,12 @@
 *.swm
 transparente.db
 local_settings.py
-Thumbs.db
 media/img/personajes/*
+apache/django.wsgi
 
 # Archivos de proyecto y temporales de Aptana
 .project
 .tmp*
 .pydevproject
+
+Thumbs.db
