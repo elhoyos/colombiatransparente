@@ -99,4 +99,11 @@ $(function(){
             $(this).attr("disabled", false);
 	   });
 	});
+	
+	// definimos lo que hay que hacer al terminar cada petición ajax 
+	$.ajaxComplete(function(e, xhr, settings){
+		if (settings.url == '/api/buscar_promesas.json') {
+			alert(e);
+		}
+	});
 });
