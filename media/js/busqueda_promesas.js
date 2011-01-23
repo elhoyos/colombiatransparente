@@ -47,8 +47,8 @@ $(function(){
     }).autocomplete({
 		source: function(request, response){
             $.getJSON("/api/buscar_tag.json", {
-                term: extractLast(request.term)
-            }, response);
+				term: extractLast(request.term)
+			}, response);
         },
         search: function(){
             // cantidad mínima de caracteres para empezar a buscar
@@ -89,7 +89,9 @@ $(function(){
 		// evitamos multiples clicks
         $(this).attr("disabled", true)
 	
-        $.get('/api/buscar_promesas.json', JSON.stringify(SearchData), function(data){
+        $.get('/api/buscar_promesas.json', {
+			terms: JSON.stringify(SearchData)
+		}, function(data){
             console.log(data);
 			// MISSING: afectar el DOM con las promesas retornadas
 		   
