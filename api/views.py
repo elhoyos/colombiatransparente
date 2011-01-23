@@ -19,7 +19,7 @@ def JSONResponse(data, dump=True):
         mimetype='application/json',
     )
 
-def buscar_tag(request):
+def buscar_tags(request):
     if 'term' in request.GET:
         term = request.GET['q']
 
