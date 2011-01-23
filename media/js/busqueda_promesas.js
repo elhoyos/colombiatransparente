@@ -93,11 +93,11 @@ $(function(){
 	
 	// eventos para enviar la solicitud de búsqueda de promesas
 	$("#do_search").click(function(){
-		SearchPromise(); 
+		SearchPromise();
 	});
 	
     // busca promesas con los términos dados
-	function SearchPromise() {
+    function SearchPromise() {
 		// evitamos multiples clicks
         $btnSearch.attr("disabled", true)
     
