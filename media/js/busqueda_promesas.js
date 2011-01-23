@@ -98,10 +98,10 @@ $(function(){
             // habilitamos el botón
             $(this).attr("disabled", false);
 	   });
-	}).ajaxComplete(function(e, xhr, settings){
+	}).ajaxError(function(e, xhr, settings, ex){
 		// definimos lo que hay que hacer al terminar cada petición ajax
         if (settings.url == '/api/buscar_promesas.json') {
-            alert(e);
+            alert(ex);
         }
     });
 });
