@@ -101,11 +101,31 @@ $(function(){
             console.log(data);
 			// MISSING: afectar el DOM con las promesas retornadas
 	   });
-	}).ajaxComplete(function(e, xhr, settings){
-		// definimos lo que hay que hacer al terminar cada petición ajax
+	});
+	
+	
+	function SearchPromise() {
+		var $btnSearch = $("#do_search");
+		
+		// evitamos multiples clicks
+        $btnSearch.attr("disabled", true)
+    
+        $.get('/api/buscar_promesas.json', {
+            terms: JSON.stringify(SearchData)
+        }, function(data){
+            console.log(data);
+            // MISSING: afectar el DOM con las promesas retornadas
+        });
+	}
+	
+	// definimos lo que hay que hacer al terminar cada petición ajax
+	$("body").ajaxComplete(function(e, xhr, settings){
+        
+		// busqueda de promesas
         if (getUrlWithoutParams(settings.url) == '/api/buscar_promesas.json') {
             // habilitamos el botón
-            $(this).attr("disabled", false);
+            $(e.target).attr("disabled", false);
         }
-    });
+    })
+	
 });
