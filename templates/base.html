@@ -60,8 +60,8 @@
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-        <script>!window.jQuery && document.write(unescape('%3Cscript src="media/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
-		<script src="media/js/libs/jquery-ui-1.8.9.custom.min.js"></script>
+        <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ MEDIA_URL }}js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
+		<script src="{{ MEDIA_URL }}js/libs/jquery-ui-1.8.9.custom.min.js"></script>
 
 
         <!-- scripts concatenated and minified via ant build script-->
@@ -72,7 +72,7 @@
 
 
         <!--[if lt IE 7 ]>
-        <script src="media/js/libs/dd_belatedpng.js"></script>
+        <script src="{{ MEDIA_URL }}js/libs/dd_belatedpng.js"></script>
         <script> DD_belatedPNG.fix('img, .png_bg'); </script>
         <![endif]-->
 
@@ -87,12 +87,12 @@
               '//connect.facebook.net/en_US/all.js';
             document.getElementById('fb-root').appendChild(e);
           }());
-      </script>
+        </script>
+
         <script type="text/javascript">
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-20905478-1']);
           _gaq.push(['_trackPageview']);
-
           (function() {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
