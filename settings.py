@@ -41,8 +41,8 @@ LANGUAGE_CODE = 'es-co'
 
 SITE_ID = 1
 
-USE_I18N = False
-USE_L10N = False
+USE_I18N = True
+USE_L10N = True
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 if DEBUG:
@@ -73,6 +73,15 @@ ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.contrib.messages.context_processors.messages"
 )
 
 INSTALLED_APPS = (
