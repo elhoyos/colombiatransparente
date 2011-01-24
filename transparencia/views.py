@@ -52,6 +52,7 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
 
     context = {
         'titulo': etiqueta.texto,
+        'descripcion': etiqueta.descripcion,
         'etiqueta': etiqueta,
         'promesas': promesas,
         'scorecard': scorecard,
@@ -83,10 +84,11 @@ def personaje(request, slug, template_name='personaje.html'):
 
     context = {
         'titulo': personaje.nombre,
+        'descripcion': personaje.descripcion,
+        'image': personaje.image,
         'personaje': personaje,
         'promesas': promesas,
         'scorecard': scorecard,
-        'image': personaje.image,
     }
     return render_to_response(
         template_name,
@@ -104,6 +106,7 @@ def promesa(request, slug, template_name='promesa.html'):
 
     context = {
         'titulo': promesa.titulo,
+        'descripcion': promesa.descripcion,
         'promesa': promesa,
         'etiquetas': etiquetas,
     }
