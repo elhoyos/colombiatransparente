@@ -21,12 +21,12 @@
 	
 	<div class="promesas_container">
 		<h3>Promesas</h3>
+		<ul id="promesas" class="promesas promesas-etiqueta">
 		{% if promesas %}
-            <ul id="promesas" class="promesas promesas-etiqueta">
             {% include 'includes/lista_promesas.html' %}
-			</ul>
 		{% else %}
 		<p class="mensaje">Que triste. Todavía no tenemos propuestas marcadas así.</p>
 		{% endif %}
+		</ul>
 	</div>		
 {% endblock %}

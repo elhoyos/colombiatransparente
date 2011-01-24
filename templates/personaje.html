@@ -38,12 +38,12 @@
 	
     <div class="promesas_container">
         <h3>Promesas</h3>
+		<ul id="promesas" class="promesas promesas-personaje">
         {% if promesas %}
-            <ul id="promesas" class="promesas promesas-personaje">
 	        {% include 'includes/lista_promesas.html' %}
-			</ul>
         {% else %}
         <p class="mensaje">Que triste. Todavía no tenemos propuestas para este personaje.</p>
         {% endif %}
+		</ul>
     </div>      
 {% endblock %}
