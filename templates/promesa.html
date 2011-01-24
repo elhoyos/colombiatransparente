@@ -14,7 +14,7 @@
 	<div class="personaje">
 		{% for cargo in promesa.cargos %}
 		<ul>
-            <a href="{% url personaje personaje.slug %}"><span class="nombre">{{ cargo }}</span></a>
+            <a href="{% url personaje cargo.personaje.slug %}"><span class="nombre">{{ cargo }}</span></a>
             {% thumbnail cargo.personaje.image "50x50" crop="center" as im %}
             <img src="{{ im.url }}" />
             {% endthumbnail %}
