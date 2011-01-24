@@ -55,7 +55,10 @@ $(function(){
         $(this).data("autocomplete").menu.active) {
             event.preventDefault();
         }
-    }).autocomplete({
+    })bind("keyup", function(event){
+		if (event.keyCode === $.ui.keyCode.ENTER)
+            SearchPromise();
+	}).autocomplete({
 		source: function(request, response){
             $.getJSON("/api/buscar_tags.json", {
 				q: extractLast(request.term)
