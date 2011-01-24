@@ -27,15 +27,22 @@
 </head>
     <body>
         <div id="container">           	
-			{% include 'includes/logo.html' %}
-			
+            <a href="{% url index %}" style="font-size: 32pt;">Colombia Transparente</a>
+            <div class="nav">
+                <ul>
+                    <li class="search_container">
+                        <input id="search" type="text" size="50" />
+                        <input id="do_search" type="button" value="Buscar" />
+                    </li>
+                </ul>
+            </div>
 			{% include 'includes/menu.html' %}
 			
             {% block header %} {% endblock %}
             
-			<fb:like show_faces="true" width="450"></fb:like> 
+            <fb:like show_faces="true" width="450"></fb:like>
             
-			<div id="main">
+			<div id="main" style="margin-bottom: 20px; margin-top: 20px;">
                 {% block main %} {% endblock %}
             </div>
             
