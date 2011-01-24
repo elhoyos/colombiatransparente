@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>{% if titulo %}{{ titulo }} - {% endif %}Colombia Transparente</title>
-    <meta name="description" content="{{ description|default:'Colombia Transparente es una comunidad de cuidadanos dedicados a eveluar el estado de las promesas de los politícos.'}}" />
+    <meta name="description" content="{{ descripcion|truncatewords:30|default:'Colombia Transparente es una comunidad de cuidadanos dedicados a eveluar el estado de las promesas de los politícos.'}}" />
     <meta name="author" content="Colombia Transparente " />
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="Colombia, Transparente, Politica, gobierno, promesas, estado" />
