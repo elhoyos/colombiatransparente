@@ -86,6 +86,7 @@ def personaje(request, slug, template_name='personaje.html'):
         'personaje': personaje,
         'promesas': promesas,
         'scorecard': scorecard,
+        'image': personaje.image,
     }
     return render_to_response(
         template_name,

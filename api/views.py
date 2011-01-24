@@ -51,8 +51,10 @@ def buscar_tags(request):
         return JSONResponse(tags)
 
 def buscar_promesas(request):
-    #if request.is_ajax() and 'q' in request.GET:
-    if 1 == 1:
+    # 1. Poner la interseccion de terminos al principio
+    # 2. Tener en cuenta relevancia
+
+    if request.is_ajax() and 'q' in request.GET:
         q = json.loads(request.GET['q'])
 
         promesas = []

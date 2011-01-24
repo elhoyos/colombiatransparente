@@ -1,6 +1,6 @@
 from django import template
 
-from colombiatransparente.transparencia.models import ESTATUS_OPCIONES
+from ..transparencia.models import ESTATUS_OPCIONES
 
 register = template.Library()
 

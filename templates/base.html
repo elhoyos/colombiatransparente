@@ -15,7 +15,7 @@
     <meta name="keywords" content="Colombia, Transparente, Politica, gobierno, promesas, estado" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="{{ titulo|default:'Colombia Transparente' }}" />
-    <meta property="og:image" content="{{ MEDIA_URL }}img/logo.jpg" />
+    <meta property="og:image" content="{{ MEDIA_URL }}{{ image|default:'img/logo.jpg' }}" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:site_name" content="Colombia Transparente" />
     <meta property="fb:admins" content="513406455" />
