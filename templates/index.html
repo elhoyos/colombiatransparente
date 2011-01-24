@@ -13,13 +13,13 @@
 	</div>
 	{% endif %}
 	
+	<ul id="promesas" class="promesas promesas-home">
 	{% if promesas %}
-	   <ul id="promesas" class="promesas promesas-home">
-	   {% include 'includes/lista_promesas.html' %}
-	   </ul>
+	   {% include 'includes/lista_promesas.html' %
 	{% else %}
 	<p class="mensaje">Que triste. No tenemos propuestas.</p>
 	{% endif %}
+	</ul>
 {% endblock %}
 
 {% block footer %} {% endblock %}
