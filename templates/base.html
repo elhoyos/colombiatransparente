@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>{% if titulo %}{{ titulo }} - {% endif %}Colombia Transparente</title>
     <meta name="description" content="{{ descripcion|truncatewords:30|default:'Colombia Transparente es una comunidad de cuidadanos dedicados a eveluar el estado de las promesas de los politícos.'}}" />
-    <meta name="author" content="Colombia Transparente " />
+    <meta name="author" content="Colombia Transparente" />
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="Colombia, Transparente, Politica, gobierno, promesas, estado" />
+    <meta name="keywords" content="{% for etiqueta in etiquetas %}{{ etiqueta }}, {% endfor %}Colombia, Transparente, Politica, gobierno, promesas, estado" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="{{ titulo|default:'Colombia Transparente' }}" />
     <meta property="og:image" content="{{ MEDIA_URL }}{{ image|default:'img/logo.jpg' }}" />
@@ -37,14 +37,11 @@
                 </ul>
             </div>
             {% block header %} {% endblock %}
-            
-            <fb:like show_faces="true" width="450"></fb:like>
              
 			<div id="main" style="margin-bottom: 20px; margin-top: 20px;">
                 {% block main %} {% endblock %}
             </div>
             
-			<fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
             
 			{% block footer %} {% endblock %}
         </div> <!-- end of #container -->

@@ -4,6 +4,8 @@
 {% load transparencia_extras %}
 
 {% block main %}
+
+    <fb:like show_faces="true" width="450"></fb:like>
     <h2>{{ personaje.nombre }} </h2>
 	
 	<span class="cargo_actual">{{ personaje.cargoactual }}</span>
@@ -45,4 +47,6 @@
         {% endif %}
 		</ul>
     </div>      
+
+	<fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
 {% endblock %}
