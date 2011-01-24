@@ -55,7 +55,7 @@ $(function(){
         $(this).data("autocomplete").menu.active) {
             event.preventDefault();
         }
-    })bind("keyup", function(event){
+    }).bind("keyup", function(event){
 		if (event.keyCode === $.ui.keyCode.ENTER)
             SearchPromise();
 	}).autocomplete({
