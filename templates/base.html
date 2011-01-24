@@ -26,6 +26,7 @@
     <script src="{{ MEDIA_URL }}js/libs/modernizr-1.6.min.js"></script>
 </head>
     <body>
+<<<<<<< HEAD
         <div id="container">
             	<div class="logo">
             		<a href="{% url index %}"><img src="{{ MEDIA_URL }}img/CT2.png" width="300" height="146"/></a>
@@ -53,10 +54,24 @@
                 {% block header %} {% endblock %}
             <fb:like show_faces="true" width="450"></fb:like> 
             <div id="main">
+=======
+        <div id="container">           	
+			{% include 'includes/logo.html' %}
+			
+			{% include 'includes/menu.html' %}
+			
+            {% block header %} {% endblock %}
+            
+			<fb:like show_faces="true" width="450"></fb:like> 
+            
+			<div id="main">
+>>>>>>> 175f307767ab567f52216dcf25bbc4d615589a1a
                 {% block main %} {% endblock %}
             </div>
-            <fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
-                {% block footer %} {% endblock %}
+            
+			<fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
+            
+			{% block footer %} {% endblock %}
         </div> <!-- end of #container -->
 
 

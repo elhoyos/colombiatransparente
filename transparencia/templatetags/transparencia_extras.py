@@ -11,3 +11,7 @@ def estatus(value):
     except IndexError:
         estatus = "Estatus fuera de rango"
     return estatus
+
+@register.filter
+def diferencia(promesa):
+    return promesa.arriba - promesa.abajo

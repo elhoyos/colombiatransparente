@@ -4,6 +4,7 @@
 
 {% block main %}
     <h2>{{ etiqueta.texto }} </h2>
+	
     <div class="scorecard">
 		{% for total, percent in scorecard %}
 		<ul class="chartitem">
@@ -15,26 +16,17 @@
 		</ul>
 		{% endfor %}
 	</div>
+	
 	<div class="descripcion">{{ etiqueta.descripcion }}</div>
+	
 	<div class="promesas_container">
 		<h3>Promesas</h3>
+		<ul id="promesas" class="promesas promesas-etiqueta">
 		{% if promesas %}
-		<ul class="promesas_list">
-			{% for promesa in promesas %}
-			<li>
-            <h4><a href="{% url promesa promesa.slug %}">{{ promesa.titulo }}</a></h4>
-                <span class="estatus">{{ promesa.estatus|estatus }}</span>
-                <span class="personaje_promesa">
-                    {% for cargo in promesa.cargos %}
-                    {{ cargo }}{% if not forloop.last %},{% endif %}
-                    {% endfor %}
-				</span>
-				<p>{{ promesa.descripcion|truncatewords_html:30 }}</p>
-			</li>
-			{% endfor %}	
-		</ul>
+            {% include 'includes/lista_promesas.html' %}
 		{% else %}
-		<p class="mensaje">Que triste. Todavía no tenemos propuestas marcadas así.</p>
+		<p class="mensaje">Que triste. Todavía no tenemos promesas marcadas así.</p>
 		{% endif %}
+		</ul>
 	</div>		
 {% endblock %}

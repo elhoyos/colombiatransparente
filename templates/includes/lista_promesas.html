@@ -1,0 +1,15 @@
+{% load transparencia_extras %}
+
+{% for promesa in promesas %}
+<li>
+<span class="diferencia">{{ promesa|diferencia }}</span>
+<h4><a href="{% url promesa promesa.slug %}">{{ promesa.titulo }}</a></h4>
+    <span class="estatus">{{ promesa.estatus|estatus }}</span>
+    <span class="personaje_promesa">
+        {% for cargo in promesa.cargos %}
+        {{ cargo }}{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    </span>
+    <p>{{ promesa.descripcion|truncatewords_html:30 }}</p>
+</li>
+{% endfor %}
