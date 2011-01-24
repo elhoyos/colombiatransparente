@@ -70,6 +70,8 @@ $(function(){
             if (term.length < 1) {
                 return false;
             }
+			
+			
         },
         focus: function(){
 			// evitamos que se inserte el valor al seleccionarlo
