@@ -51,6 +51,9 @@ def buscar_tags(request):
         return JSONResponse(tags)
 
 def buscar_promesas(request):
+    # 1. Poner la interseccion de terminos al principio
+    # 2. Tener en cuenta relevancia
+
     if request.is_ajax() and 'q' in request.GET:
         q = json.loads(request.GET['q'])
 
@@ -74,6 +77,8 @@ def buscar_promesas(request):
         for promesa in promesas:
             promesa.cargos = [promesacargo.cargo for \
                 promesacargo in promesa.promesacargo_set.all()]
+
+        promesas = set(promesas)
         
         t = get_template('includes/lista_promesas.html')
         html = t.render(Context({'promesas': promesas}))

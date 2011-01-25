@@ -28,7 +28,11 @@ def crear_scorecard(promesas):
     return zip(scorecard_total, scorecard_percent)
 
 def index(request, template_name='index.html'):
+    
+    promesas = Promesa.objects.all()[:10]
+
     context = {
+        'promesas': promesas, 
     }
     return render_to_response(
         template_name,
@@ -47,7 +51,9 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
     scorecard = crear_scorecard(promesas)
 
     context = {
-        'titulo': etiqueta.texto,
+        'titulo': etiqueta,
+        'etiquetas': [etiqueta,],
+        'descripcion': etiqueta.descripcion,
         'etiqueta': etiqueta,
         'promesas': promesas,
         'scorecard': scorecard,
@@ -79,6 +85,9 @@ def personaje(request, slug, template_name='personaje.html'):
 
     context = {
         'titulo': personaje.nombre,
+        'etiquetas': [personaje.nombre,],
+        'descripcion': personaje.descripcion,
+        'image': personaje.image,
         'personaje': personaje,
         'promesas': promesas,
         'scorecard': scorecard,
@@ -99,6 +108,8 @@ def promesa(request, slug, template_name='promesa.html'):
 
     context = {
         'titulo': promesa.titulo,
+        'etiquetas': etiquetas,
+        'descripcion': promesa.descripcion,
         'promesa': promesa,
         'etiquetas': etiquetas,
     }

@@ -10,6 +10,7 @@
     font-size: 15px;
     color: #6393D;
     float: top;
+    margin-bottom: 20px;
 }
 
 .nav > ul {
@@ -30,7 +31,6 @@
 }
 
 .nav li.search_container {
-    float: right
 }
 
 .nav a, .nav a:link {
