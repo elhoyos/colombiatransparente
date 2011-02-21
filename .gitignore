@@ -8,6 +8,7 @@ transparente.db
 local_settings.py
 media/img/personajes/*
 media/cache/*
+apache/django.wsgi
 
 # Archivos de proyecto y temporales de Aptana
 .project
