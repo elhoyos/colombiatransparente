@@ -94,5 +94,5 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'transparencia',
     'sorl.thumbnail',
-    'django-bcrypt',
+    'django_bcrypt',
 )
