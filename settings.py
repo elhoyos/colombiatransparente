@@ -1,4 +1,4 @@
-# Settings para Colombia Transparente
+# Settings para ColombiaTransparente
 
 # local_settings.py debe de exister
 # con los siguiente variables

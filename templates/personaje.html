@@ -3,6 +3,16 @@
 {% load thumbnail %}
 {% load transparencia_extras %}
 
+{% block og %}
+    <meta property="og:title" content="{{ titulo }}" />
+    <meta property="og:type" content="politician" />
+    <meta property="og:image" content="{{ MEDIA_URL }}img/logo.jpg" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:site_name" content="ColombiaTransparente" />
+    <meta property="fb:admins" content="513406455" />
+    <meta property="fb:app_id" content="170808489629869" />
+{% endblock %}
+
 {% block main %}
 
     <fb:like show_faces="true" width="450"></fb:like>
