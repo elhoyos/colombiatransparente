@@ -46,7 +46,7 @@
         {% endfor %}
     </div>
 	
-    <div class="descripcion">{{ personaje.descripcion|markdown:"footnotes" }}</div>
+    <div class="descripcion">{{ personaje.descripcion|markdown:"safe, footnotes" }}</div>
 	
     <div class="promesas_container">
         <h3>Promesas</h3>

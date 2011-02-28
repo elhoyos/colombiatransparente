@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
+from django.utils.html import escape
 from django.views.decorators.csrf import csrf_exempt
 
 from transparencia.models import Cargo, Personaje, Etiqueta, Promesa
@@ -27,7 +28,7 @@ def JSONResponse(data, dump=True):
 def markdown_preview(request):
     processed = ''
     if request.method == 'POST':
-        processed = markdown(request.POST.get('data'), ['footnotes',])
+        processed = markdown(escape(request.POST.get('data')), ['footnotes',])
     return HttpResponse(processed)
 
 def buscar_tags(request):

@@ -11,6 +11,6 @@
         {{ cargo }}{% if not forloop.last %},{% endif %}
         {% endfor %}
     </span>
-    <p>{{ promesa.descripcion|truncatewords:30|markdown }}</p>
+    <p>{{ promesa.descripcion|truncatewords:30|markdown:"safe" }}</p>
 </li>
 {% endfor %}
