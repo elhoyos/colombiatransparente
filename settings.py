@@ -95,4 +95,5 @@ INSTALLED_APPS = (
     'transparencia',
     'sorl.thumbnail',
     'django_bcrypt',
+    'django.contrib.markup',
 )

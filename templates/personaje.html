@@ -2,6 +2,7 @@
 
 {% load thumbnail %}
 {% load transparencia_extras %}
+{% load markup %}
 
 {% block og %}
     <meta property="og:title" content="{{ titulo }}" />
@@ -45,7 +46,7 @@
         {% endfor %}
     </div>
 	
-    <div class="descripcion">{{ personaje.descripcion }}</div>
+    <div class="descripcion">{{ personaje.descripcion|markdown:"footnotes" }}</div>
 	
     <div class="promesas_container">
         <h3>Promesas</h3>

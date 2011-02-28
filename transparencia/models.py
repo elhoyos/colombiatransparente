@@ -1,6 +1,23 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
 from sorl import thumbnail
+
+
+class PerfilColumnista(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    bio = models.TextField(blank=True, null=True)
+    image = thumbnail.ImageField(upload_to='img/columnistas', blank=True, null=True)
+
+def crear_perfil_columnista(sender, instance, created, **kwargs):
+    if created:
+        perfil = PerfilColumnista()
+        perfil.user = instance
+        perfil.save()
+
+post_save.connect(crear_perfil_columnista, sender=User)
+
 
 ESTANCADO = 0
 EN_PROCESO = 1
@@ -18,6 +35,7 @@ ESTATUS_OPCIONES = (
 
 class Promesa(models.Model):
     titulo = models.CharField(max_length=200)
+    columnista = models.ForeignKey(User)
     slug = models.SlugField()
     estatus = models.IntegerField(choices=ESTATUS_OPCIONES)
     descripcion = models.TextField()
@@ -30,6 +48,7 @@ class Promesa(models.Model):
 
 class Personaje(models.Model):
     nombre = models.CharField(max_length=64)
+    columnista = models.ForeignKey(User)
     slug = models.SlugField()
     descripcion = models.TextField()
     image = thumbnail.ImageField(upload_to='img/personajes')
@@ -60,6 +79,7 @@ class PromesaCargo(models.Model):
     cargo = models.ForeignKey(Cargo)
 
 class Etiqueta(models.Model):
+    columnista = models.ForeignKey(User)
     texto = models.CharField(max_length=32, unique=True)
     descripcion = models.TextField()
 

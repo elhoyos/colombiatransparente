@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load transparencia_extras %}
+{% load markup %}
 
 {% block og %}
     <meta property="og:title" content="{{ titulo|default:'ColombiaTransparente' }}" />
@@ -30,7 +31,7 @@
 		{% endfor %}
 	</div>
 	
-	<div class="descripcion">{{ etiqueta.descripcion }}</div>
+	<div class="descripcion">{{ etiqueta.descripcion|markdown:"footnotes" }}</div>
 	
 	<div class="promesas_container">
 		<h3>Promesas</h3>

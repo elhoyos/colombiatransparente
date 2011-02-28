@@ -2,6 +2,7 @@
 
 {% load thumbnail %}
 {% load transparencia_extras %}
+{% load markup %}
 
 {% block og %}
     <meta property="og:title" content="{{ titulo }}" />
@@ -46,7 +47,7 @@
     </ul>
 	
 	<p class="decripcion">
-		{{ promesa.descripcion }}
+		{{ promesa.descripcion|markdown:"footnotes" }}
 	</p>
 	
 	<div class="fb_comments">
