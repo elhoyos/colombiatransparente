@@ -36,6 +36,7 @@ ESTATUS_OPCIONES = (
 class Promesa(models.Model):
     titulo = models.CharField(max_length=200)
     columnista = models.ForeignKey(User)
+    actualizado = models.DateTimeField(auto_now=True)
     slug = models.SlugField()
     estatus = models.IntegerField(choices=ESTATUS_OPCIONES)
     descripcion = models.TextField()
@@ -49,6 +50,7 @@ class Promesa(models.Model):
 class Personaje(models.Model):
     nombre = models.CharField(max_length=64)
     columnista = models.ForeignKey(User)
+    actualizado = models.DateTimeField(auto_now=True)
     slug = models.SlugField()
     descripcion = models.TextField()
     image = thumbnail.ImageField(upload_to='img/personajes')
@@ -80,6 +82,7 @@ class PromesaCargo(models.Model):
 
 class Etiqueta(models.Model):
     columnista = models.ForeignKey(User)
+    actualizado = models.DateTimeField(auto_now=True)
     texto = models.CharField(max_length=32, unique=True)
     descripcion = models.TextField()
 
