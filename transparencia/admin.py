@@ -62,14 +62,21 @@ class EtiquetaAdminForm(forms.ModelForm):
         model = Etiqueta
 
 class EtiquetaAdmin(admin.ModelAdmin):
-    forms = EtiquetaAdminForm
+    form = EtiquetaAdminForm
 
-class PerfilInline(admin.StackedInline):
+class PerfilColumnistaAdminForm(forms.ModelForm):
+    bio = forms.CharField(widget=MarkItUpWidget())
+
+    class Meta:
+        model = PerfilColumnista
+
+class PerfilColumnistaInline(admin.StackedInline):
+    form = PerfilColumnistaAdminForm
     model = PerfilColumnista
     max_num = 1
 
 class UserAdmin(UserAdmin):
-    inlines = [PerfilInline,]
+    inlines = [PerfilColumnistaInline,]
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
