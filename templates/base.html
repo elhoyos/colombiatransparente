@@ -69,7 +69,16 @@
         <script>
           window.fbAsyncInit = function() {
             FB.init({appId: '170808489629869', status: true, cookie: true,
-                     xfbml: true});
+                xfbml: true});
+            
+            // catch the Like button events
+            FB.Event.subscribe('edge.create', function(response) {
+                alert('Like It!');
+            });
+
+            FB.Event.subscribe('edge.remove', function(response) {
+                alert('Unlike It!');
+            });
           };
           (function() {
             var e = document.createElement('script'); e.async = true;
