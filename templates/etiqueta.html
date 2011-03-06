@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 
 {% load transparencia_extras %}
+{% load markup %}
+
+{% block og %}
+    <meta property="og:title" content="{{ titulo|default:'ColombiaTransparente' }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ MEDIA_URL }}{{ image|default:'img/logo.jpg' }}" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:site_name" content="ColombiaTransparente" />
+    <meta property="fb:admins" content="513406455" />
+    <meta property="fb:app_id" content="170808489629869" />
+{% endblock %}
 
 {% block main %}
 
@@ -20,7 +31,7 @@
 		{% endfor %}
 	</div>
 	
-	<div class="descripcion">{{ etiqueta.descripcion }}</div>
+	<div class="descripcion">{{ etiqueta.descripcion|markdown:"safe, footnotes" }}</div>
 	
 	<div class="promesas_container">
 		<h3>Promesas</h3>

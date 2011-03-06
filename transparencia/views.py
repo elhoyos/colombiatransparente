@@ -28,7 +28,6 @@ def crear_scorecard(promesas):
     return zip(scorecard_total, scorecard_percent)
 
 def index(request, template_name='index.html'):
-    
     promesas = Promesa.objects.all()[:10]
 
     context = {

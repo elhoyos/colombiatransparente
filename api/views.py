@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
+from django.utils.html import escape
+from django.views.decorators.csrf import csrf_exempt
 
 from transparencia.models import Cargo, Personaje, Etiqueta, Promesa
 
@@ -8,6 +10,8 @@ try:
     import simplejson as json
 except ImportError: 
     import json
+
+from markdown import markdown
 
 TIPO_TAGS = {
     Cargo: 0,
@@ -19,6 +23,13 @@ def JSONResponse(data, dump=True):
         json.dumps(data) if dump else data,
         mimetype='application/json',
     )
+
+@csrf_exempt
+def markdown_preview(request):
+    processed = ''
+    if request.method == 'POST':
+        processed = markdown(escape(request.POST.get('data')), ['footnotes',])
+    return HttpResponse(processed)
 
 def buscar_tags(request):
     if request.is_ajax() and 'q' in request.GET:

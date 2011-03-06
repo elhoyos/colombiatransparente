@@ -2,6 +2,17 @@
 
 {% load thumbnail %}
 {% load transparencia_extras %}
+{% load markup %}
+
+{% block og %}
+    <meta property="og:title" content="{{ titulo }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ MEDIA_URL }}img/logo.jpg" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:site_name" content="ColombiaTransparente" />
+    <meta property="fb:admins" content="513406455" />
+    <meta property="fb:app_id" content="170808489629869" />
+{% endblock %}
 
 {% block main %}
 
@@ -36,12 +47,12 @@
     </ul>
 	
 	<p class="decripcion">
-		{{ promesa.descripcion }}
+		{{ promesa.descripcion|markdown:"safe, footnotes" }}
 	</p>
 	
 	<div class="fb_comments">
         <!-- Acá se coloca el snippet del 'comments' de facebook -->
     </div>
 
-	<fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
+	<fb:comments numposts="10" width="700" publish_feed="true"></fb:comments>
 {% endblock %}

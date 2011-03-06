@@ -1,4 +1,4 @@
-# Settings para Colombia Transparente
+# Settings para ColombiaTransparente
 
 # local_settings.py debe de exister
 # con los siguiente variables
@@ -45,13 +45,13 @@ USE_I18N = True
 USE_L10N = True
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
-if DEBUG:
-    if STAGING:
-        MEDIA_URL = 'http://staging.colombiatransparente.co/media/'
-        ADMIN_MEDIA_PREFIX = 'http://staging.colombiatransparente.co/media/admin/'
-    else:
-        MEDIA_URL = 'http://localhost:8000/media/'
-        ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
+
+if STAGING:
+    MEDIA_URL = 'http://staging.colombiatransparente.co/media/'
+    ADMIN_MEDIA_PREFIX = 'http://staging.colombiatransparente.co/media/admin/'
+elif DEBUG:
+    MEDIA_URL = 'http://localhost:8000/media/'
+    ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
 else:
     MEDIA_URL = 'http://www.colombiatransparente.co/media/'
     ADMIN_MEDIA_PREFIX = 'http://www.colombiatransparente.co/media/admin/'
@@ -94,4 +94,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'transparencia',
     'sorl.thumbnail',
+    'django_bcrypt',
+    'django.contrib.markup',
 )
