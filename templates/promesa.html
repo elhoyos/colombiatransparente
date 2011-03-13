@@ -1,58 +1,158 @@
-{% extends "base.html" %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Colombia Transparente</title>
+<link href="css/framework.css" rel="stylesheet" type="text/css" />
+ <link href="favicon.ico" rel="icon" type="image/x-icon" /> 
+</head>
 
-{% load thumbnail %}
-{% load transparencia_extras %}
-{% load markup %}
+<body>
 
-{% block og %}
-    <meta property="og:title" content="{{ titulo }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="{{ MEDIA_URL }}img/logo.jpg" />
-    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-    <meta property="og:site_name" content="ColombiaTransparente" />
-    <meta property="fb:admins" content="513406455" />
-    <meta property="fb:app_id" content="170808489629869" />
-{% endblock %}
+<div id="wrapper">
+<div id="wrapperContainer">
 
-{% block main %}
+<div id="top">
+<div id="topLeft">
+<div id="logo">
+<p><a href="#"><img src="images/logo.png" alt="Colombia Transparente Logo" /></a></p>
+</div><!--END OF LOGO-->
+<div id="quote">
+<p>Lorem ipsum dolor sit amet, consectetuer.</p>
+<p><span>Lorem ipsum dolor.</span></p>
+</div><!--END OF QUOTE-->
+</div><!--END OF TOP LEFT-->
+<div id="topRight">
+<div id="login">
+<ul>
+<li><a href="#">LOGIN</a> <span>|</span></li>
+<li><a href="#">REGISTER</a></li>
+</ul>
+</div><!--END OF LOGIN-->
+<div id="socialMedia">
+<ul>
+<li class="siguenos">SIGUENOS</li>
+<li id="facebook"><a href="#">FACEBOOK</a></li>
+<li id="twitter"><a href="#">TWITTER</a></li>
+</ul>
+</div><!--END OF SOCIAL MEDIA-->
+</div><!--END OF TOP RIGHT-->
+</div><!--END OF TOP-->
 
-    <fb:like show_faces="true" width="450"></fb:like>
+<div id="header">
+<div id="personajeHeader">
+<p><img src="images/santos_headerimg.png" alt="Etiquetas de Personajes" /></p>
+</div><!--END OF PERSONAJE HEADER -->
 
-    <div class="votacion">
-    	<img src="{{ MEDIA_URL }}img/up.png" />
-		<span>{{ promesa.diferencia }}</span>
-		<img src="{{ MEDIA_URL }}img/down.png" />
-    </div>
-    <h2>{{ promesa.titulo }} </h2>
-	<span class="estatus">{{ promesa.estatus|estatus }}</span>
-	<div class="personaje">
-		{% for cargo in promesa.cargos %}
-		<ul>
-            <a href="{% url personaje cargo.personaje.slug %}"><span class="nombre">{{ cargo }}</span></a>
-            {% thumbnail cargo.personaje.image "50x50" crop="center" as im %}
-            <img src="{{ im.url }}" />
-            {% endthumbnail %}
-		</ul>
-		{% endfor %}
-	</div>
-	
-	<div class="fb_share">
-		<!-- Acá se coloca el snippet del share de facebook -->
-	</div>
-	
-    <ul class="etiquetas">
-        {% for etiqueta in etiquetas %}
-        <li><a href="{% url etiqueta etiqueta.texto %}">{{ etiqueta.texto }}</a></li>
-        {% endfor %}
-    </ul>
-	
-	<p class="decripcion">
-		{{ promesa.descripcion|markdown:"safe, footnotes" }}
-	</p>
-	
-	<div class="fb_comments">
-        <!-- Acá se coloca el snippet del 'comments' de facebook -->
-    </div>
+<div id="etiquetasHeader">
+<p><img src="images/salud_headerimg.png" alt="Etiquetas de Salud" /></p>
+</div><!--END OF PERSONAJE HEADER -->
 
-	<fb:comments numposts="10" width="700" publish_feed="true"></fb:comments>
-{% endblock %}
+<div id="searchBar">
+<h1>Busca con Personajes y Etiquetas:</h1>
+<form method="get" id="searchform" action="">
+<fieldset class="search">
+	<input type="text" class="box" />
+	<button class="btn" title="Submit Search">Search</button>
+</fieldset>
+</form>
+</div><!--END OF SEARCH BAR-->
+</div><!--END OF HEADER-->
+
+<div id="promesa">
+<div class="voting">
+<p class="up"><a href="#">Up</a></p>
+<p><span>234</span></p>
+<p class="down"><a href="#">Down</a></p>
+</div>
+<div class="topPromesas">
+<div class="tituloPromesa">
+<h2>Lorem ipsum dolor sit amet, y 10% más trabajos en 2011</h2>
+</div><!--END OF TITULO PROMESA-->
+<div class="cumplida">
+<p>Cumplida</p>
+</div>
+
+<!--END OF ESTATUS PROMESA-->
+</div><!--END OF TOP PROMESAS-->
+<div id="socialSharingPromesa">
+<ul>
+<li><a href="#"><img src="images/tweet.jpg" alt="Tweet This" /></a></li>
+<li><a href="#"><img src="images/megusta_fb.jpg" alt="Me Gustas FB" /></a></li>
+<li><a href="#"><img src="images/share_btn.jpg" alt="Share Button" /></a></li>
+</ul>
+</div>
+<!--END OF SOCIAL SHARING-->
+<div class="bottomPromesa">
+<div id="personajes">
+<p class="personajes">Personajes:</p>
+<p id="personajeEtiquetaSantos"><span>Juan Manuel Santos</span></p>
+<p id="personajeEtiquetaFajardo"><span>Sergio Fajardo</span></p>
+</div>
+
+<div id="etiquetas">
+<p class="etiquetas">Etiquetas:</p>
+<p class="etiquetaEtiqueta"><span>salud</span></p>
+<p class="etiquetaEtiqueta"><span>economía</span></p>
+<p class="agregarEtiqueta"><a href="#">Agregar Etiqueta</a></p>
+</div>
+<div id="bottomPromesaTxtEtiqueta">
+<h2>Actualizado Feb. 22, 2011 <span>por Alejandra Zuluaga</span></h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p> 
+
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilis.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. </p>
+
+<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+
+<h3>Fuentes:</h3>
+<p><a href="#">Semana - Por Que los Trabajos Son Buenos</a></p>
+</div>
+</div><!--END OF BOTTOM PROMESA-->
+</div><!--END OF PROMESA-->
+
+
+<div id="footerLogoPromesa"><img src="images/logo_footer.png" alt="Colombia Transparente" /></div>
+<!--END OF FOOTER LOGO-->
+<div id="footer">
+<hr />
+<div id="column1">
+
+<h3>Colombia Transparente</h3>
+<ul>
+<li><a href="#">Sobre Nosotros</a></li>
+<li><a href="#">Patrocinadores</a></li>
+<li><a href="#">Contactanos</a></li>
+</ul>
+</div><!--END OF COLUMN 1-->
+<div id="column2">
+<h3>Participa</h3>
+<ul>
+<li><a href="#">Columnistas</a></li>
+<li><a href="#">Desarrolladores</a></li>
+</ul>
+</div><!--END OF COLUMN 1-->
+<div id="column3">
+<h3>Encuentranos En</h3>
+<ul>
+<li><a href="#">Facebook</a></li>
+<li><a href="#">Twitter</a></li>
+</ul>
+</div><!--END OF COLUMN 1-->
+<div id="column4">
+<h3>Twitter</h3>
+</div><!--END OF COLUMN 1-->
+
+
+</div><!--END OF FOOTER-->
+
+
+</div><!--END OF WRAPPER CONTAINER-->
+</div><!--END OF WRAPPER-->
+<div id="copyright">
+<p>Copyright ©  2010 Colombia Transparente</p>
+</div>
+
+</body>
+</html>
