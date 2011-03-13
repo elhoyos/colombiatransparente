@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load transparencia_extras %}
+{% load markup %}
+
+{% block og %}
+    <meta property="og:title" content="{{ titulo }}" />
+    <meta property="og:type" content="politician" />
+    <meta property="og:image" content="{{ MEDIA_URL }}img/logo.jpg" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:site_name" content="ColombiaTransparente" />
+    <meta property="fb:admins" content="513406455" />
+    <meta property="fb:app_id" content="170808489629869" />
+{% endblock %}
+
+{% block main %}
+
+    <fb:like show_faces="true" width="450"></fb:like>
+    <h2>{{ personaje.nombre }} </h2>
+	
+	<span class="cargo_actual">{{ personaje.cargoactual }}</span>
+    
+	<p>
+    	{% thumbnail personaje.image "100x100" crop="center" as im %}
+    	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height}}" />
+		{% endthumbnail %}
+        </p>
+	<div class="otros_cargos">
+        <ul>
+        {% for cargo in personaje.cargos %}
+        <li>{{ cargo.titulo }}</li>
+		{% endfor %}
+		</ul> 
+	</div>
+    
+	<div class="scorecard">
+        {% for total, percent in scorecard %}
+        <ul class="chartitem">
+            <li>
+                <span class="estatus">{{ forloop.counter0|estatus }}</span>
+                <span class="cantidad">{{ total }}</span>
+                <span class="barra">{{ percent }}</span>    
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+	
+    <div class="descripcion">{{ personaje.descripcion|markdown:"safe, footnotes" }}</div>
+	
+    <div class="promesas_container">
+        <h3>Promesas</h3>
+		<ul id="promesas" class="promesas promesas-personaje">
+        {% if promesas %}
+	        {% include 'includes/lista_promesas.html' %}
+        {% else %}
+        <p class="mensaje">Que triste. Todavía no tenemos promesas para este personaje.</p>
+        {% endif %}
+		</ul>
+    </div>      
+
+	<fb:comments numposts="10" width="425" publish_feed="true"></fb:comments>
+{% endblock %}
