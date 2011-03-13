@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+    font-family: 'AlteHaasGroteskBold';
+    src: url('../fonts/altehaasgroteskbold-webfont.eot?') format('eot'),
+         url('../fonts/altehaasgroteskbold-webfont.woff') format('woff'),
+         url('../fonts/altehaasgroteskbold-webfont.ttf') format('truetype'),
+         url('../fonts/altehaasgroteskbold-webfont.svg#webfont7z53APaS') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AlteHaasGroteskRegular';
+    src: url('../fonts/altehaasgroteskregular-webfont.eot?') format('eot'),
+         url('../fonts/altehaasgroteskregular-webfont.woff') format('woff'),
+         url('../fonts/altehaasgroteskregular-webfont.ttf') format('truetype'),
+         url('../fonts/altehaasgroteskregular-webfont.svg#webfonteA13EqbX') format('svg');
+    font-weight: normal;
+    font-style: normal;}
+    
+/* ELEMENT STYLES */
+
+body {font: 13px Geneva, Tahoma, sans-serif; color: #000;background-image: url(../images/grey_background.png);}
+
+img,fieldset {border: none;	}
+
+* {margin: 0; padding: 0;}
+
+h1 {font: 28px 'AlteHaasGroteskBold', sans-serif; color: #A7BA45;}
+
+h2 {font: 20px 'AlteHaasGroteskBold', sans-serif; color: #052939; }
+
+h3 {font: 16px 'AlteHaasGroteskBold', sans-serif; color: #A7BA45;}
+
+ol, ul {list-style-type: none;}
+
+/* FRAMEWORK */
+
+#wrapper {width: 1029px; margin: 0 auto;
+background: url(../images/white_background.png) repeat-y;}
+
+#wrapperContainer {width: 960px; margin: 0 auto;}
+
+#top {width: 960px; padding: 0 30px 100px 30px; }
+
+#topLeft {width: 669px; float: left; margin-top: 20px;}
+
+#logo {width: 344px; float: left; padding-right: 20px; }
+#quote {width: 284px; float: left; padding: 10px 0 10px 20px; border-left: 1px dotted #333;}
+
+#quote p { color: #022C3B;}
+
+#quote span { font-size: 11px; color: #aaa;}
+
+#topRight {width: 231px; float: left;}
+
+#login {width: 157px; height: 35px;
+background: url(../images/login_background.png) no-repeat; margin-left: 60px; padding: 8px 0 0 15px;}
+	#login li {display: inline; letter-spacing: 1px; font: 13px 'AlteHaasGroteskRegular', sans-serif; color: #5D5D5D;}
+	#login a:link, #login a:visited {color: #5D5D5D; text-decoration: none;}
+	#login a:hover {color: #052939;}
+	
+#header { clear: both; width: 961px;height: 220px;background: #022C3B url(../images/header_background.png) 90px 0; border-top: 4px solid #143b49;  border-bottom: 2px solid #143b49;}
+
+#personajeHeader {position: absolute; margin: 20px 0 0 335px;}
+#etiquetasHeader {position: absolute; margin: 32px 0 0 600px;}
+
+#searchBar {margin: 80px 0 0 220px;}
+
+#socialMedia { padding-top: 20px; margin-left: 60px;}
+
+#socialMedia li {color: #7AB317; float: left;}
+
+#facebook { margin: 0 8px 15px 0;}
+.siguenos {font: 13px 'AlteHaasGroteskRegular'; margin: 8px 20px 0 0;}
+#facebook a, #facebook a:link, #facebook a:visited {display: block; background: url(../images/facebook.png) no-repeat; text-indent: -5000px; height: 32px; width: 32px;}
+#facebook a:hover { background-position: 0 -32px;}
+
+#twitter a, #twitter a:link, #twitter a:visited {display: block; background: url(../images/twitter.png) no-repeat; text-indent: -5000px; height: 32px; width: 32px;}
+#twitter a:hover { background-position: 0 -32px;}
+
+.promesa {padding: 0 30px 300px 30px; margin-top: 30px; background: url(../images/diagonal_lines.png) no-repeat 26px 280px; }
+.promesaLast {padding: 0 30px; margin: 30px 0 400px 0;}
+
+
+	.voting { width: 40px; float: left;}
+		.up a, .up a:link, .up a:visited{display: block; background: url(../images/up_arrow.png) no-repeat; text-indent: -5000px; height: 13px; width: 31px; margin-bottom: 5px;}
+		.up a:hover { background-position: 0 -15px; }
+		.down a, .down a:link, .down a:visited {display: block; background: url(../images/down_arrow.png) no-repeat; text-indent: -5000px; height: 14px; width: 31px; margin-top: 5px;}
+		.down a:hover {background-position: 0 -15px; }
+
+div.topPromesas { width: 830px; margin-left: 25px; float: left; border-bottom: 1px dotted #333; padding-bottom: 10px;}
+	div.enProceso { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../images/en_proceso.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
+	
+div.cumplida { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../images/cumplida.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
+
+div.incumplida { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../images/incumplida.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
+
+div.bottomPromesa { width: 830px; float: left; margin-left: 25px;}
+#bottomPromesaTxt { clear: both; padding-top: 20px;}
+#bottomPromesaTxt p {margin-top: 10px;}
+
+
+	.bottomPromesa ul{ padding-bottom: 10px;0}
+	.bottomPromesa li { display: inline; padding-right: 10px;}
+.personajes {font: 15px 'AlteHaasGroteskBold'; color: #869536; float: left; margin: 15px 15px 0 0; }
+.etiquetaEtiqueta {width: 81px; height: 21px; float: left; background-color: #d8d8d8; padding-top: 2px; text-align: center; margin: 10px 10px 0 0; 
+}
+
+#etiquetas p.etiquetaEtiqueta span { font-size: 11px; color: #333;}
+#personajeEtiquetaSantos { width: 116px; height: 21px; color: #333; background: #d8d8d8 url(../images/etiqueta_foto.jpg) no-repeat; float: left; padding: 2px 0 0 40px; margin: 13px 10px 0 0; 
+}
+
+#personajeEtiquetaSantos span, #personajeEtiquetaFajardo span { font-size: 11px; color: #333;}
+#personajeEtiquetaFajardo { width: 116px; height: 21px; font-size: 11px; color: #333; background: #d8d8d8 url(../images/etiqueta_foto2.jpg) no-repeat; float: left; padding: 2px 0 0 40px; margin: 13px 10px 0 0;}
+.etiquetas {clear: both; font: 15px 'AlteHaasGroteskBold'; color: #869536; float: left; margin: 15px 15px 0 0;}
+#etiquetas {clear: both; }
+	.agregarEtiqueta {float: left; margin: 16px 10px 0 0;}
+	.agregarEtiqueta a:link, .agregarEtiqueta a:visited {color: #869536;}
+	.agregarEtiqueta a:hover {color: #6c7929;}
+	
+div#footerLogo {position: absolute; margin: -25px 0 0 460px;}
+	
+#footer { clear: both;  margin-top: 50px; background-color: #022C3B; padding: 10px 30px 0 30px; height: 250px; }
+#column1 {width: 210px; float: left; border-right: dotted 1px #fff; height: 100px; margin-top: 40px;}
+#column2 {width: 140px; float: left; padding-left: 30px; border-right: dotted 1px #fff; height: 100px; margin-top: 40px;}
+#column3 {width: 150px; float: left; padding-left: 30px; margin-top: 40px;}
+#column4 { width: 315px; float: left;background: url(../images/twitter_background.png) no-repeat; margin-top: 25px; padding: 15px 0 0 20px; height: 200px;}
+
+#footer ul {list-style-image: url(../images/bullet.png);
+list-style-position: inside; }
+#footer li { padding-bottom: 10px;}
+#footer a:link, #footer a:visited { color: #cecece; text-decoration: none;}
+#footer a:hover {color: #fff;}
+
+#footer h3 {padding-bottom: 15px;}
+
+hr {background-color: #325460; border-color: #325460; }
+
+#copyright {width: 960px; margin: 0 auto; text-align: center; padding: 15px 0 45px 0;
+	color: #022c3b; font: 12px 'AlteHaasGroteskRegular', sans-serif;}
+
+
+.search input, .search button {border: none;float: left; margin-top: 15px;}
+.search input.box {color: #333; font-size: 1.2em; width: 400px; height: 44px; padding: 0 5px 0 45px; background: url(../images/searchbar.png) no-repeat;  }
+
+.search input.box:focus {
+	background:  url(../images/searchbar.png)  no-repeat ;
+	outline: none;}
+
+.search button.btn {
+	width: 98px;
+	height: 44px;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: url(../images/buscar_btn.png) no-repeat -1px;
+}
+
+/* PAGINAS INTERNAS */
+
+#paginaInternaContainer { padding: 35px 30px 50px 30px; background: url(../images/diagonal_lines.png) no-repeat 26px 610px; overflow: auto; }
+
+#etiquetaContainer { padding: 35px 30px 50px 30px; background: url(../images/diagonal_lines.png) no-repeat 26px 420px; overflow: auto; }
+	#paginaInternaContainer h1 {font: 23px 'AlteHaasGroteskBold'; color: #022C3B; border-bottom: dotted 1px #333; padding-bottom: 8px;}
+
+#etiquetaContainer h1 {font: 23px 'AlteHaasGroteskBold'; color: #022C3B; border-bottom: dotted 1px #333; padding-bottom: 8px;}
+
+	#socialSharing {width: 412px; float: right; text-align: right; margin-top: 10px;}
+		#socialSharing li {display: inline;}
+
+#socialSharingPromesa {width: 412px; position: absolute; text-align: right; margin: 40px 0 0 490px;}
+		#socialSharingPromesa li {display: inline;}
+		
+	#paginaInternaLeft {width: 420px; float: left; margin-top: 70px;}
+
+
+
+	#scoreBoard { width: 408px; height: 210px;
+	background: url(../images/scorebox_background.png) no-repeat; padding: 15px 20px 50px 20px;}
+	
+	div.scoreRow {border-bottom: solid 1px #ccc; width: 370px; padding: 9px 0; overflow: auto;}
+	div.scoreRowLast { width: 370px; padding: 10px 0;}
+	div.estatus { float: left; font: 13px 'AlteHaasGroteskBold'; color: #333; text-shadow: #fff 2px 2px 2px; width: 100px;}
+	div.estatusNumero { float: right; font: 13px 'AlteHaasGroteskBold'; color: #333; text-shadow: #fff 2px 2px 2px; padding-right: 10px; }
+	#scoreCumplida {width: 120px; float: left; text-indent: -5555px;
+	background-image: url(../images/cumplido_bar.png);}
+	#scoreAmedias {width: 43px; float: left; text-indent: -5555px;
+	background-image: url(../images/amedias_bar.png);}
+	#scoreIncumplida {width: 36px; float: left; text-indent: -5555px;
+	background-image: url(../images/incumplido_bar.png);}
+	#scoreEstancada {width: 57px; float: left; text-indent: -5555px;
+	background-image: url(../images/estancado_bar.png);}
+	#scoreEnproceso {width: 155px; float: left; text-indent: -5555px;
+	background-image: url(../images/enproceso_bar.png);}
+	
+	#paginaInternaRight { width: 450px; float: left; padding: 20px 0 0 30px;}
+	#paginaInternaRight h2 { font: 18px 'AlteHaasGroteskRegular'; padding-bottom: 15px;}
+
+	#paginaInternaRight span {color: #a6b946; font-size: 15px;}
+	
+	.personajeFoto img { border: solid 8px #333; float: left; margin: 14px 20px 0 0;}
+
+	#paginaInternaRight h3 {font: 14px 'AlteHaasGroteskRegular'; color: #333; padding: 20px 0 10px 0;}
+	#paginaInternaRight p { font: 13px Geneva, Tahoma, sans-serif; line-height: 20px; padding-bottom: 10px;}
+	#paginaInternaRight a:link, #paginaInternaRight a:visited {
+	color: #a7ba45; font: 13px Geneva, sans-serif;}
+	#paginaInternaRight a:hover {color: #9aac3e;}
+
+#paginaInternaLeft h3 { color: #042D3C; font: 14px 'AlteHaasGroteskBold'; padding-bottom: 15px;}
+
+#paginaInternaLeft p { padding-bottom: 10px; color: #333; font: 13px Geneva, sans-serif;}
+
+#paginaInternaLeft a:link, #paginaInternaLeft a:visited {
+	color: #a7ba45; font: 13px Geneva, sans-serif;}
+	#paginaInternaLeft a:hover {color: #9aac3e;}
+	
+	#promesa {padding: 0 30px 30px 30px; margin-top: 30px; overflow: auto; }
+
+
+	div#footerLogoPromesa {position: absolute; margin: 25px 0 0 460px;}
+	#promesa h3 {font: 14px 'AlteHaasGroteskRegular'; color: #333; padding: 20px 0 10px 0;}
+	#promesa p { font: 13px Geneva, Tahoma, sans-serif; line-height: 20px; }
+
+#promesa div.voting p span { font: 16px Arial, sans-serif; color: #6e6e6e; font-weight: bold; }
+	#promesa a:link, #promesa a:visited {
+	color: #a7ba45; font: 13px Geneva, sans-serif;}
+
+
+	#promesa a:hover {color: #9aac3e;}
+	div#bottomPromesaTxtEtiqueta {border-bottom: dotted 1px #333; padding-bottom: 40px; clear: both; margin-top: 70px;}
+	
+	div#bottomPromesaTxtEtiqueta p {padding-bottom: 10px;}
+	#bottomPromesaTxtEtiqueta h2 { font: 18px 'AlteHaasGroteskRegular'; padding-bottom: 15px;}
+
+	#bottomPromesaTxtEtiqueta span {color: #a6b946; font-size: 15px;}
+	
+	div.voting p {color: #6e6e6e; font: 16px Arial, sans-serif; font-weight: bold;}
