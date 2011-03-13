@@ -5,6 +5,7 @@
 *.swl
 *.swm
 transparente.db
+dev.db
 local_settings.py
 media/img/personajes/*
 media/cache/*
@@ -20,6 +21,3 @@ mynotes
 
 # Windows garbage
 Thumbs.db
-
-# Temporary
-index.html
