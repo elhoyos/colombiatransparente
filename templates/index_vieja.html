@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block header %} {% endblock %}
+
+{% block main %}
+	{% if etiquetas %}
+	<div class="marquesina">
+		<ul class="etiquetas">
+			{% for etiqueta in etiquetas %}
+			<li>{{ etiqueta.texto }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+    <h2>Promesas:</h2>	
+	<ul id="promesas" class="promesas promesas-home">
+	{% if promesas %}
+    {% include 'includes/lista_promesas.html' %}
+	{% else %}
+	<p class="mensaje">Que triste. No tenemos promesas.</p>
+	{% endif %}
+	</ul>
+{% endblock %}
+
+{% block footer %} {% endblock %}

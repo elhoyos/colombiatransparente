@@ -71,6 +71,10 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_DIR, 'fixtures'),
+)
+
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
