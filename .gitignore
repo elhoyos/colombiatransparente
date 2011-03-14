@@ -4,7 +4,6 @@
 *.swn
 *.swl
 *.swm
-transparente.db
 local_settings.py
 media/img/personajes/*
 media/cache/*
