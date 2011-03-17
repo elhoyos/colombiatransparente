@@ -6,6 +6,7 @@ from transparencia.models import *
 
 # Markdown plugin
 class MarkItUpWidget(forms.Textarea):
+    required = False
     class Media:
         js = (
             'js/libs/jquery-1.5.1.min.js',
@@ -22,11 +23,11 @@ class MarkItUpWidget(forms.Textarea):
 
 class PromesaCargoInline(admin.StackedInline):
     model = PromesaCargo
-    extra = 1
+    extra = 0
 
 class PromesaEtiquetaInline(admin.StackedInline):
     model = PromesaEtiqueta
-    extra = 1
+    extra = 0
 
 class PromesaAdminForm(forms.ModelForm):
     descripcion = forms.CharField(widget=MarkItUpWidget())
@@ -42,7 +43,7 @@ class PromesaAdmin(admin.ModelAdmin):
 
 class CargoInline(admin.StackedInline):
     model = Cargo
-    extra = 1
+    extra = 0
 
 class PersonajeAdminForm(forms.ModelForm):
     descripcion = forms.CharField(widget=MarkItUpWidget())
@@ -65,7 +66,7 @@ class EtiquetaAdmin(admin.ModelAdmin):
     form = EtiquetaAdminForm
 
 class PerfilColumnistaAdminForm(forms.ModelForm):
-    bio = forms.CharField(widget=MarkItUpWidget())
+    bio = forms.CharField(widget=MarkItUpWidget(), required=False)
 
     class Meta:
         model = PerfilColumnista

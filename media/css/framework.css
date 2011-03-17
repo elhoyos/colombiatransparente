@@ -26,7 +26,7 @@
     
 /* ELEMENT STYLES */
 
-body {font: 13px Geneva, Tahoma, sans-serif; color: #000;background-image: url(../images/grey_background.png);}
+body {font: 13px Geneva, Tahoma, sans-serif; color: #000;background-image: url(../img/grey_background.png);}
 
 img,fieldset {border: none;	}
 
@@ -43,7 +43,7 @@ ol, ul {list-style-type: none;}
 /* FRAMEWORK */
 
 #wrapper {width: 1029px; margin: 0 auto;
-background: url(../images/white_background.png) repeat-y;}
+background: url(../img/white_background.png) repeat-y;}
 
 #wrapperContainer {width: 960px; margin: 0 auto;}
 
@@ -61,12 +61,12 @@ background: url(../images/white_background.png) repeat-y;}
 #topRight {width: 231px; float: left;}
 
 #login {width: 157px; height: 35px;
-background: url(../images/login_background.png) no-repeat; margin-left: 60px; padding: 8px 0 0 15px;}
+background: url(../img/login_background.png) no-repeat; margin-left: 60px; padding: 8px 0 0 15px;}
 	#login li {display: inline; letter-spacing: 1px; font: 13px 'AlteHaasGroteskRegular', sans-serif; color: #5D5D5D;}
 	#login a:link, #login a:visited {color: #5D5D5D; text-decoration: none;}
 	#login a:hover {color: #052939;}
 	
-#header { clear: both; width: 961px;height: 220px;background: #022C3B url(../images/header_background.png) 90px 0; border-top: 4px solid #143b49;  border-bottom: 2px solid #143b49;}
+#header { clear: both; width: 961px;height: 220px;background: #022C3B url(../img/header_background.png) 90px 0; border-top: 4px solid #143b49;  border-bottom: 2px solid #143b49;}
 
 #personajeHeader {position: absolute; margin: 20px 0 0 335px;}
 #etiquetasHeader {position: absolute; margin: 32px 0 0 600px;}
@@ -79,28 +79,28 @@ background: url(../images/login_background.png) no-repeat; margin-left: 60px; pa
 
 #facebook { margin: 0 8px 15px 0;}
 .siguenos {font: 13px 'AlteHaasGroteskRegular'; margin: 8px 20px 0 0;}
-#facebook a, #facebook a:link, #facebook a:visited {display: block; background: url(../images/facebook.png) no-repeat; text-indent: -5000px; height: 32px; width: 32px;}
+#facebook a, #facebook a:link, #facebook a:visited {display: block; background: url(../img/facebook.png) no-repeat; text-indent: -5000px; height: 32px; width: 32px;}
 #facebook a:hover { background-position: 0 -32px;}
 
-#twitter a, #twitter a:link, #twitter a:visited {display: block; background: url(../images/twitter.png) no-repeat; text-indent: -5000px; height: 32px; width: 32px;}
+#twitter a, #twitter a:link, #twitter a:visited {display: block; background: url(../img/twitter.png) no-repeat; text-indent: -5000px; height: 32px; width: 32px;}
 #twitter a:hover { background-position: 0 -32px;}
 
-.promesa {padding: 0 30px 300px 30px; margin-top: 30px; background: url(../images/diagonal_lines.png) no-repeat 26px 280px; }
+.promesa {padding: 0 30px 300px 30px; margin-top: 30px; background: url(../img/diagonal_lines.png) no-repeat 26px 280px; }
 .promesaLast {padding: 0 30px; margin: 30px 0 400px 0;}
 
 
 	.voting { width: 40px; float: left;}
-		.up a, .up a:link, .up a:visited{display: block; background: url(../images/up_arrow.png) no-repeat; text-indent: -5000px; height: 13px; width: 31px; margin-bottom: 5px;}
+		.up a, .up a:link, .up a:visited{display: block; background: url(../img/up_arrow.png) no-repeat; text-indent: -5000px; height: 13px; width: 31px; margin-bottom: 5px;}
 		.up a:hover { background-position: 0 -15px; }
-		.down a, .down a:link, .down a:visited {display: block; background: url(../images/down_arrow.png) no-repeat; text-indent: -5000px; height: 14px; width: 31px; margin-top: 5px;}
+		.down a, .down a:link, .down a:visited {display: block; background: url(../img/down_arrow.png) no-repeat; text-indent: -5000px; height: 14px; width: 31px; margin-top: 5px;}
 		.down a:hover {background-position: 0 -15px; }
 
 div.topPromesas { width: 830px; margin-left: 25px; float: left; border-bottom: 1px dotted #333; padding-bottom: 10px;}
-	div.enProceso { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../images/en_proceso.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
+	div.enProceso { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../img/en_proceso.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
 	
-div.cumplida { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../images/cumplida.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
+div.cumplida { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../img/cumplida.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
 
-div.incumplida { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../images/incumplida.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
+div.incumplida { position: absolute; margin: -25px 0 0 720px; font: 14px 'AlteHaasGroteskRegular', sans-serif; background: url(../img/incumplida.png) no-repeat; height: 30px; padding: 2px 0 0 30px; color: #333;}
 
 div.bottomPromesa { width: 830px; float: left; margin-left: 25px;}
 #bottomPromesaTxt { clear: both; padding-top: 20px;}
@@ -114,11 +114,11 @@ div.bottomPromesa { width: 830px; float: left; margin-left: 25px;}
 }
 
 #etiquetas p.etiquetaEtiqueta span { font-size: 11px; color: #333;}
-#personajeEtiquetaSantos { width: 116px; height: 21px; color: #333; background: #d8d8d8 url(../images/etiqueta_foto.jpg) no-repeat; float: left; padding: 2px 0 0 40px; margin: 13px 10px 0 0; 
+#personajeEtiquetaSantos { width: 116px; height: 21px; color: #333; background: #d8d8d8 url(../img/etiqueta_foto.jpg) no-repeat; float: left; padding: 2px 0 0 40px; margin: 13px 10px 0 0; 
 }
 
 #personajeEtiquetaSantos span, #personajeEtiquetaFajardo span { font-size: 11px; color: #333;}
-#personajeEtiquetaFajardo { width: 116px; height: 21px; font-size: 11px; color: #333; background: #d8d8d8 url(../images/etiqueta_foto2.jpg) no-repeat; float: left; padding: 2px 0 0 40px; margin: 13px 10px 0 0;}
+#personajeEtiquetaFajardo { width: 116px; height: 21px; font-size: 11px; color: #333; background: #d8d8d8 url(../img/etiqueta_foto2.jpg) no-repeat; float: left; padding: 2px 0 0 40px; margin: 13px 10px 0 0;}
 .etiquetas {clear: both; font: 15px 'AlteHaasGroteskBold'; color: #869536; float: left; margin: 15px 15px 0 0;}
 #etiquetas {clear: both; }
 	.agregarEtiqueta {float: left; margin: 16px 10px 0 0;}
@@ -131,9 +131,9 @@ div#footerLogo {position: absolute; margin: -25px 0 0 460px;}
 #column1 {width: 210px; float: left; border-right: dotted 1px #fff; height: 100px; margin-top: 40px;}
 #column2 {width: 140px; float: left; padding-left: 30px; border-right: dotted 1px #fff; height: 100px; margin-top: 40px;}
 #column3 {width: 150px; float: left; padding-left: 30px; margin-top: 40px;}
-#column4 { width: 315px; float: left;background: url(../images/twitter_background.png) no-repeat; margin-top: 25px; padding: 15px 0 0 20px; height: 200px;}
+#column4 { width: 315px; float: left;background: url(../img/twitter_background.png) no-repeat; margin-top: 25px; padding: 15px 0 0 20px; height: 200px;}
 
-#footer ul {list-style-image: url(../images/bullet.png);
+#footer ul {list-style-image: url(../img/bullet.png);
 list-style-position: inside; }
 #footer li { padding-bottom: 10px;}
 #footer a:link, #footer a:visited { color: #cecece; text-decoration: none;}
@@ -148,10 +148,10 @@ hr {background-color: #325460; border-color: #325460; }
 
 
 .search input, .search button {border: none;float: left; margin-top: 15px;}
-.search input.box {color: #333; font-size: 1.2em; width: 400px; height: 44px; padding: 0 5px 0 45px; background: url(../images/searchbar.png) no-repeat;  }
+.search input.box {color: #333; font-size: 1.2em; width: 400px; height: 44px; padding: 0 5px 0 45px; background: url(../img/searchbar.png) no-repeat;  }
 
 .search input.box:focus {
-	background:  url(../images/searchbar.png)  no-repeat ;
+	background:  url(../img/searchbar.png)  no-repeat ;
 	outline: none;}
 
 .search button.btn {
@@ -159,14 +159,14 @@ hr {background-color: #325460; border-color: #325460; }
 	height: 44px;
 	cursor: pointer;
 	text-indent: -9999px;
-	background: url(../images/buscar_btn.png) no-repeat -1px;
+	background: url(../img/buscar_btn.png) no-repeat -1px;
 }
 
 /* PAGINAS INTERNAS */
 
-#paginaInternaContainer { padding: 35px 30px 50px 30px; background: url(../images/diagonal_lines.png) no-repeat 26px 610px; overflow: auto; }
+#paginaInternaContainer { padding: 35px 30px 50px 30px; background: url(../img/diagonal_lines.png) no-repeat 26px 610px; overflow: auto; }
 
-#etiquetaContainer { padding: 35px 30px 50px 30px; background: url(../images/diagonal_lines.png) no-repeat 26px 420px; overflow: auto; }
+#etiquetaContainer { padding: 35px 30px 50px 30px; background: url(../img/diagonal_lines.png) no-repeat 26px 420px; overflow: auto; }
 	#paginaInternaContainer h1 {font: 23px 'AlteHaasGroteskBold'; color: #022C3B; border-bottom: dotted 1px #333; padding-bottom: 8px;}
 
 #etiquetaContainer h1 {font: 23px 'AlteHaasGroteskBold'; color: #022C3B; border-bottom: dotted 1px #333; padding-bottom: 8px;}
@@ -182,22 +182,22 @@ hr {background-color: #325460; border-color: #325460; }
 
 
 	#scoreBoard { width: 408px; height: 210px;
-	background: url(../images/scorebox_background.png) no-repeat; padding: 15px 20px 50px 20px;}
+	background: url(../img/scorebox_background.png) no-repeat; padding: 15px 20px 50px 20px;}
 	
 	div.scoreRow {border-bottom: solid 1px #ccc; width: 370px; padding: 9px 0; overflow: auto;}
 	div.scoreRowLast { width: 370px; padding: 10px 0;}
 	div.estatus { float: left; font: 13px 'AlteHaasGroteskBold'; color: #333; text-shadow: #fff 2px 2px 2px; width: 100px;}
 	div.estatusNumero { float: right; font: 13px 'AlteHaasGroteskBold'; color: #333; text-shadow: #fff 2px 2px 2px; padding-right: 10px; }
 	#scoreCumplida {width: 120px; float: left; text-indent: -5555px;
-	background-image: url(../images/cumplido_bar.png);}
+	background-image: url(../img/cumplido_bar.png);}
 	#scoreAmedias {width: 43px; float: left; text-indent: -5555px;
-	background-image: url(../images/amedias_bar.png);}
+	background-image: url(../img/amedias_bar.png);}
 	#scoreIncumplida {width: 36px; float: left; text-indent: -5555px;
-	background-image: url(../images/incumplido_bar.png);}
+	background-image: url(../img/incumplido_bar.png);}
 	#scoreEstancada {width: 57px; float: left; text-indent: -5555px;
-	background-image: url(../images/estancado_bar.png);}
+	background-image: url(../img/estancado_bar.png);}
 	#scoreEnproceso {width: 155px; float: left; text-indent: -5555px;
-	background-image: url(../images/enproceso_bar.png);}
+	background-image: url(../img/enproceso_bar.png);}
 	
 	#paginaInternaRight { width: 450px; float: left; padding: 20px 0 0 30px;}
 	#paginaInternaRight h2 { font: 18px 'AlteHaasGroteskRegular'; padding-bottom: 15px;}
