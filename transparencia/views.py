@@ -50,6 +50,7 @@ def etiqueta(request, slug, template_name='etiqueta.html'):
     scorecard = crear_scorecard(promesas)
 
     context = {
+        'id': etiqueta.id,
         'titulo': etiqueta,
         'etiquetas': [etiqueta,],
         'descripcion': etiqueta.descripcion,
@@ -83,6 +84,7 @@ def personaje(request, slug, template_name='personaje.html'):
     scorecard = crear_scorecard(promesas)
 
     context = {
+        'id': personaje.id,
         'titulo': personaje.nombre,
         'etiquetas': [personaje.nombre,],
         'descripcion': personaje.descripcion,
@@ -106,6 +108,7 @@ def promesa(request, slug, template_name='promesa.html'):
         promesaetiqueta in promesa.promesaetiqueta_set.all()]
 
     context = {
+        'id': promesa.id,
         'titulo': promesa.titulo,
         'etiquetas': etiquetas,
         'descripcion': promesa.descripcion,
