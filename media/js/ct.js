@@ -153,7 +153,7 @@ $(function(){
             type: $("#element_type").val(), 
             
             // true para 'like' o false 'unlike'
-            like: true; 
+            like: true
         }
 
         return {
