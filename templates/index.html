@@ -1,1 +1,12 @@
 {% extends "base.html" %}
+
+{% block main %}
+
+{% if promesas %}
+	{% include 'includes/lista_promesas.html' %}
+{% else %}
+	<p class="mensaje">Que triste. No tenemos promesas.</p>
+{% endif %}
+
+{% endblock %}
+

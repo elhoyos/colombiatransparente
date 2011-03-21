@@ -2,15 +2,46 @@
 {% load markup %}
 
 {% for promesa in promesas %}
-<li>
-<!--<span class="diferencia">{{ promesa|diferencia }}</span>-->
-<h4><a href="{% url promesa promesa.slug %}">{{ promesa.titulo }}</a></h4>
-    <span class="estatus">{{ promesa.estatus|estatus }}</span>
-    <span class="personaje_promesa">
-        {% for cargo in promesa.cargos %}
-        {{ cargo }}{% if not forloop.last %},{% endif %}
-        {% endfor %}
-    </span>
-    <p>{{ promesa.descripcion|truncatewords:30|markdown:"safe" }}</p>
-</li>
+
+<div class="promesa">
+	<div class="voting">
+		<p class="up"><a href="#">Up</a></p>
+		<p>{{ promesa|diferencia }}</p>
+		<p class="down"><a href="#">Down</a></p>
+	</div>
+	<div class="topPromesas">
+		<div class="tituloPromesa">
+			<h2>{{ promesa.titulo }}</h2>
+		</div><!--END OF TITULO PROMESA-->
+		<!-- FIXME: la clase enProceso debe cambiar de acuerdo al estado de la promesa -->
+		<div class="enProceso">
+			<p>{{ promesa.estatus|estatus }}</p>
+		</div>
+		<!--END OF ESTATUS PROMESA-->
+	</div><!--END OF TOP PROMESAS-->
+	<div class="bottomPromesa">
+		<div id="personajes">
+			<p class="personajes">Personajes:</p>
+			{% for cargo in promesa.cargos %}
+
+			<!-- FIXME: la clase personajeEtiquetaSantos cambia de acuerdo al personaje -->
+			<p id="personajeEtiquetaSantos"><span>{{ cargo }}</span></p>
+
+			{% endfor %}
+		</div>
+
+		<div id="etiquetas">
+			<p class="etiquetas">Etiquetas:</p>
+			{% for etiqueta in etiquetas %}
+			<p class="etiquetaEtiqueta"><span>{{ etiqueta }}</span></p>
+			{% endfor %}
+			<p class="agregarEtiqueta"><a href="#">Agregar Etiqueta</a></p>
+		</div>
+		<div id="bottomPromesaTxt">
+			<p>
+			{{ promesa.descripcion|truncatewords:30|markdown:"safe" }}
+			</p>
+		</div>
+	</div><!--END OF BOTTOM PROMESA-->
+</div><!--END OF PROMESA-->
 {% endfor %}
