@@ -30,6 +30,10 @@ def crear_scorecard(promesas):
 def index(request, template_name='index.html'):
     promesas = Promesa.objects.all()[:10]
 
+    for promesa in promesas:
+    	promesa.cargos = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
+	promesa.etiquetas = [promesaetiqueta.etiqueta for promesaetiqueta in promesa.promesaetiqueta_set.all()]
+
     context = {
         'promesas': promesas, 
     }
