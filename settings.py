@@ -1,25 +1,7 @@
 # Settings para ColombiaTransparente
-
-DEBUG = False
-#TEMPLATE_DEBUG = DEBUG # No veo que utilicemos esta variable para nada
-STAGING = False
-
-# Debe utilizar local_settings.py para inicializar 
-# las siguientes variables. Ver fin del archivo.
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite',.
-        'NAME': 'transparente.db', 
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-
-SECRET_KEY = 'KEYLOCAasjahjshdlkjsajhsa*A98798hjdhsdj'
-"""
+#
+# Debe utilizar local_settings.py para inicializar variables especificas.
+# Ver fin del archivo.
 
 import os.path
 PROJECT_DIR = os.path.dirname(__file__)
@@ -43,16 +25,6 @@ USE_I18N = True
 USE_L10N = True
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
-
-if STAGING:
-    MEDIA_URL = 'http://staging.colombiatransparente.co/media/'
-    ADMIN_MEDIA_PREFIX = 'http://staging.colombiatransparente.co/media/admin/'
-elif DEBUG:
-    MEDIA_URL = 'http://localhost:8000/media/'
-    ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
-else:
-    MEDIA_URL = 'http://www.colombiatransparente.co/media/'
-    ADMIN_MEDIA_PREFIX = 'http://www.colombiatransparente.co/media/admin/'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -101,11 +73,10 @@ INSTALLED_APPS = (
 )
 
 
-# para sobrescribir las configuraciones
-# local_settings.py debe de existir
+# local_settings.py inicializa variables especificas de la instalacion de CT.
 try:
     from local_settings import * # en el mismo directorio que este archivo
 except ImportError:
     import sys
-    sys.stderr.write("Error: Must use a local_settings.py file to set specific settings for CT project.")
+    sys.stderr.write("Error: Must use a local_settings.py file to set specific settings for this CT installation.")
     sys.exit(1)
