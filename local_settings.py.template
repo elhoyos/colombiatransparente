@@ -1,0 +1,26 @@
+DEBUG = True
+STAGING = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'FullPathToDBfile',
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+SECRET_KEY = 'l(1zadbq7==id48&pb6i!a_a+u^u)98(a57q_o#3t8t#jk3*99'
+
+if STAGING:
+    MEDIA_URL = 'http://staging.yourstagingserver.com/media/'
+    ADMIN_MEDIA_PREFIX = 'http://staging.yourstagingserver.com/media/admin/'
+elif DEBUG:
+    MEDIA_URL = 'http://localhost:8000/media/'
+    ADMIN_MEDIA_PREFIX = 'http://localhost:8000/media/admin/'
+else:
+    MEDIA_URL = 'http://www.colombiatransparente.co/media/'
+    ADMIN_MEDIA_PREFIX = 'http://www.colombiatransparente.co/media/admin/'
+

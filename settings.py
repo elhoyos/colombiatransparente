@@ -1,12 +1,12 @@
 # Settings para ColombiaTransparente
 
-# local_settings.py debe de exister
-# con los siguiente variables
-"""
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
-STAGING = True
+#TEMPLATE_DEBUG = DEBUG # No veo que utilicemos esta variable para nada
+STAGING = False
 
+# Debe utilizar local_settings.py para inicializar 
+# las siguientes variables. Ver fin del archivo.
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite',.
@@ -20,8 +20,6 @@ DATABASES = {
 
 SECRET_KEY = 'KEYLOCAasjahjshdlkjsajhsa*A98798hjdhsdj'
 """
-
-from local_settings import *
 
 import os.path
 PROJECT_DIR = os.path.dirname(__file__)
@@ -101,3 +99,13 @@ INSTALLED_APPS = (
     'django_bcrypt',
     'django.contrib.markup',
 )
+
+
+# para sobrescribir las configuraciones
+# local_settings.py debe de existir
+try:
+    from local_settings import * # en el mismo directorio que este archivo
+except ImportError:
+    import sys
+    sys.stderr.write("Error: Must use a local_settings.py file to set specific settings for CT project.")
+    sys.exit(1)
