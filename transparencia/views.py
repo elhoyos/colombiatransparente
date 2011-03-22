@@ -106,18 +106,13 @@ def personaje(request, slug, template_name='personaje.html'):
 
 def promesa(request, slug, template_name='promesa.html'):
     promesa = get_object_or_404(Promesa, slug=slug)
-    promesa.diferencia = promesa.arriba - promesa.abajo
-    promesa.cargos = [promesacargo.cargo for promesacargo in promesa.promesacargo_set.all()]
-    etiquetas = [promesaetiqueta.etiqueta for \
+    promesa.cargos = [promesacargo.cargo for \
+        promesacargo in promesa.promesacargo_set.all()]
+    promesa.etiquetas = [promesaetiqueta.etiqueta for \
         promesaetiqueta in promesa.promesaetiqueta_set.all()]
 
     context = {
-        'id': promesa.id,
-        'titulo': promesa.titulo,
-        'etiquetas': etiquetas,
-        'descripcion': promesa.descripcion,
         'promesa': promesa,
-        'etiquetas': etiquetas,
     }
     return render_to_response(
         template_name,

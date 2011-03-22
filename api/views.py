@@ -1,3 +1,4 @@
+from django.db.models import F
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
@@ -95,3 +96,38 @@ def buscar_promesas(request):
         html = t.render(Context({'promesas': promesas}))
         
         return HttpResponse(html)
+
+
+# registra un evento like/unlike del boton 'like' de facebook en una 
+# promesa
+# siempre retornara cero
+def registrar_evento_likebtn(request):
+    if request.is_ajax(): 
+        if 'id' not in request.POST or \
+           'type' not in request.POST or \
+           'like' not in request.POST:
+            return JSONResponse(0)
+            
+        id = request.POST['id']
+        elementtype = request.POST['type']
+        like = request.POST['like']
+        
+        import sys
+        sys.stderr.write(like)
+        
+        if elementtype == '0': 
+            try:
+                promesa = Promesa.objects.get(id=id)
+            except DoesNotExist:
+                return JSONResponse(0)
+
+            if like == 'true':
+                promesa.arriba = F('arriba') + 1
+            else:
+                promesa.abajo = F('abajo') + 1
+
+            promesa.save()
+
+            return JSONResponse(0)
+            
+        return JSONResponse(0)
