@@ -128,7 +128,7 @@
         <!-- scripts concatenated and minified via ant build script-->
         <script src="{{ MEDIA_URL }}js/plugins.js"></script>
         <script src="{{ MEDIA_URL }}js/script.js"></script>
-	<script src="{{ MEDIA_URL }}js/ct.js"></script>
+	    <script src="{{ MEDIA_URL }}js/ct.js"></script>
         <!-- end concatenated and minified scripts-->
 
 
@@ -144,11 +144,11 @@
             
             // catch the Like button events
             FB.Event.subscribe('edge.create', function(response) {
-                alert('Like It!');
+                CT.like.sendEvent(true);
             });
 
             FB.Event.subscribe('edge.remove', function(response) {
-                alert('Unlike It!');
+                CT.like.sendEvent(false);
             });
           };
           (function() {

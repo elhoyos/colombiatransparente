@@ -7,19 +7,21 @@
  * 
  * Author: elhoyos - juan.hoyosr@gmail.com
  */
+
+var CT = function() {
+    var private_var;
+
+    function private_method() {
+
+    }
+
+    return {
+        
+    }
+}();
+
+
 $(function(){
-
-    var CT = function() {
-        var private_var;
-
-        function private_method() {
-
-        }
-
-        return {
-            
-        }
-    }();
 
     CT.search = function() {
 	    var SearchData = [];
@@ -100,8 +102,8 @@ $(function(){
                 // espacio al final
                 terms.push("");
                 
-                // agrega el tag seleccionado al SearchData que será enviado 
-                // luego
+                // agrega el tag seleccionado al SearchData que será 
+                // enviado luego
                 SearchData.push(
                     {
                      tipo: ui.item.tipo,
@@ -154,7 +156,7 @@ $(function(){
             
             // true para 'like' o false 'unlike'
             like: true
-        }
+        };
 
         return {
             // enviamos el evento al servidor
@@ -164,7 +166,7 @@ $(function(){
 
                 event.like = like;
 
-                $.post("api/share.json", event.like);
+                $.post("/api/registrar_evento_likebtn.json", event);
             }
         }
     }();

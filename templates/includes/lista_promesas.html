@@ -11,7 +11,7 @@
 	</div>
 	<div class="topPromesas">
 		<div class="tituloPromesa">
-			<h2>{{ promesa.titulo }}</h2>
+            <h2><a href="{% url promesa promesa.slug %}">{{ promesa.titulo }}</a></h2>
 		</div><!--END OF TITULO PROMESA-->
 		<!-- FIXME: la clase enProceso debe cambiar de acuerdo al estado de la promesa -->
 		<div class="enProceso">
@@ -25,7 +25,9 @@
 			{% for cargo in promesa.cargos %}
 
 			<!-- FIXME: la clase personajeEtiquetaSantos cambia de acuerdo al personaje -->
-			<p id="personajeEtiquetaSantos"><span>{{ cargo }}</span></p>
+            <p id="personajeEtiquetaSantos">
+                <a href="{% url personaje cargo.personaje.slug %}"><span>{{ cargo }}</span></a>
+            </p>
 
 			{% endfor %}
 		</div>
