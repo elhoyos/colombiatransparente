@@ -103,31 +103,20 @@ def buscar_promesas(request):
 # siempre retornara cero
 def registrar_evento_likebtn(request):
     if request.is_ajax(): 
-        if 'id' not in request.POST or \
-           'type' not in request.POST or \
-           'like' not in request.POST:
-            return JSONResponse(0)
+        if 'id' in request.POST and \
+            'type' in request.POST and \
+            'like' in request.POST:
             
-        id = request.POST['id']
-        elementtype = request.POST['type']
-        like = request.POST['like']
-        
-        import sys
-        sys.stderr.write(like)
-        
-        if elementtype == '0': 
-            try:
-                promesa = Promesa.objects.get(id=id)
-            except DoesNotExist:
-                return JSONResponse(0)
-
-            if like == 'true':
-                promesa.arriba = F('arriba') + 1
-            else:
-                promesa.abajo = F('abajo') + 1
-
-            promesa.save()
-
-            return JSONResponse(0)
+            id = request.POST['id']
+            elementtype = request.POST['type']
+            like = request.POST['like']
             
-        return JSONResponse(0)
+            if elementtype == '0': 
+                try:
+                    promesa = Promesa.objects.get(id=id)
+                except DoesNotExist:
+                    return JSONResponse()
+
+                promesa.share = F('compartido') + (1 if like else -1)
+                promesa.save()
+    return JSONResponse()
